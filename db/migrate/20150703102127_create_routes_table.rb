@@ -1,7 +1,7 @@
 class CreateRoutesTable < ActiveRecord::Migration
   def change
   	create_table :routes do |t|
-  		# t.geometry		:geometry
+  		# t.geometry		:geos
   		t.string			:blockside
   		t.integer			:blocksweep
   		t.integer			:cnn
