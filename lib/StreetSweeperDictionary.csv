@@ -1,0 +1,63 @@
+Field Name,Sample Value,Definition
+
+=> {:BLOCKSIDE=>"", :BLOCKSWEEP=>"1642922", :CNN=>"13798000", :CNNRIGHTLE=>"R", :CORRIDOR=>"Corona St", :DISTRICT=>nil, :FROMHOUR=>"12:00", :HOLIDAYS=>false, :LF_FADD=>"221", :LF_TOADD=>"299", :NHOOD=>"Ingleside Terrace", :RT_FADD=>"222", :RT_TOADD=>"298", :STREETNAME=>"CORONA ST", :TOHOUR=>"14:00", :WEEK1OFMON=>true, :WEEK2OFMON=>false, :WEEK3OFMON=>true, :WEEK4OFMON=>false, :WEEK5OFMON=>false, :WEEKDAY=>"Fri", :ZIP_CODE=>"94127"}
+
+
+CNN,1821000,Center line ID number
+
+WeekDay,Wed,"Mon, Tues, Wed, Thu, Fri, Sat Sun, or Holiday,  These values are 
+abbreviations for the days of the week.  Holiday is for a few of the records 
+that happen only on holidays.  (I do not know which holidays these are.)"
+
+BlockSide,East,"An approximate direction for the side of the street, i.e.  
+North, Northeast, East, etc.  This is direction works well for most streets 
+but streets that curve will have some inaccuracies."
+
+BlockSweepID,287141,This is the data key for DPW to look up connect to the 
+source data if there are problems with this record.
+
+CNNRightLeft,L,R = Right; L = Left.  This is the side of the block if your 
+back is to the lowest address and you are facing the higher addresses.
+
+Corridor,37th Ave,Name of the street that this CNN is on for reference only
+
+FromHour,11:00,The hour that the sweep time Starts using the 24 hour clock
+
+ToHour,13:00,The hour that the sweep time Ends using the 24 hour clock
+
+Holidays,No,"Yes if the block side is swept from even when this day falls on a 
+holiday, No if not swept on holidays."
+
+Week1OfMonth,No,"Yes if the block side is swept from during the first week of 
+the month (from  1 to 7 of the month), No if not swept on this week."
+
+Week2OfMonth,Yes,"Yes if the block side is swept from during the second week 
+of the month (from  8 to 14 of the month), No if not swept on this week."
+
+Week3OfMonth,No,"Yes if the block side is swept from during the third week of 
+the month (from  15 to 21 of the month), No if not swept on this week."
+
+Week4OfMonth,Yes,"Yes if the block side is swept from during the fourth week 
+of the month (from 22 to 28 of the month), No if not swept on this week."
+
+Week5OfMonth,No,"Yes if the block side is swept from during the fifth week of 
+the month (from  28 to end of the month), No if not swept on this week."
+
+LF_FADD,500,"Left side from Address number, lowest address number on left side"
+
+LF_TOADD,598,"Left side to Address number, highest address number on left side"
+
+RT_TOADD,599,"Right side from Address number, lowest address number on right 
+side"
+
+RT_FADD,501,"Right side To Address number, highest address number on right 
+side"
+
+STREETNAME,37TH AVE,Save as Corridor field
+
+ZIP_CODE,94121,
+
+NHOOD,Outer Richmond,
+
+DISTRICT,1,Supervisorial District Number
+,,
