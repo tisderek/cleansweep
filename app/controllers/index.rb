@@ -1,12 +1,12 @@
 get '/' do
-  erb :landing
+  erb :splash
 end
 
 #----------- SESSIONS -----------
 
 get '/sessions/new' do
 
-  erb :_signin
+  erb :"sessions/_signin"
 end
 
 post '/sessions' do
@@ -25,7 +25,7 @@ end
 
 get '/users/new' do
 
-  erb :_signup
+  erb :"sessions/_signup"
 end
 
 post '/users' do
