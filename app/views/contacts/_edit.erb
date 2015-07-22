@@ -1,0 +1,16 @@
+<h3> Edit contact </h3>
+
+<p> Saved Contact: </p>
+
+<%= erb :_show %>
+
+<form action="/contacts/<%= @contact.id %>" method="post" class="pure-form">
+  <fieldset>
+    <legend> Replace info </legend>
+    <input type="hidden" name="_method" value="PUT">
+
+    <input type="text" name="name" placeholder="Name" />
+    <input type="text" name="phone_number" placeholder="Phone" />
+    <input type="submit" value="Edit" class="pure-button" />
+
+</form>

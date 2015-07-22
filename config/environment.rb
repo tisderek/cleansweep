@@ -12,6 +12,7 @@ require 'uri'
 require 'pathname'
 
 require 'pg'
+require 'sqlite3'
 require 'active_record'
 require 'logger'
 
@@ -19,7 +20,15 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
+require 'bcrypt'
+require 'securerandom'
 
+require 'openssl'
+require 'geokit'
+require 'pry'
+require 'twilio-ruby'
+
+ActiveRecord::Base.default_timezone = :local
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
@@ -43,3 +52,8 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+#Twilio API settings
+
+
+

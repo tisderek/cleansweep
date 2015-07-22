@@ -31,6 +31,7 @@ DB_NAME = db.path[1..-1]
 #   if ENV['RACK_ENV'] is set.  If ENV['RACK_ENV'] is not set, it defaults
 #   to :development
 
+
 ActiveRecord::Base.establish_connection(
   :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
   :host     => db.host,
@@ -40,3 +41,8 @@ ActiveRecord::Base.establish_connection(
   :database => DB_NAME,
   :encoding => 'utf8'
 )
+
+# database_config = { :adapter  =>  "sqlite3",
+#                     :database => "#{APP_ROOT}db/cs_db.sqlite3" }
+
+# ActiveRecord::Base.establish_connection(database_config)

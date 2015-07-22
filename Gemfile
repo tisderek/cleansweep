@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
-ruby ‘2.2.1’
 
 # PostgreSQL driver
 gem 'pg'
+
+gem 'sqlite3'
 
 # Sinatra driver
 gem 'sinatra'
@@ -14,6 +15,12 @@ gem 'activerecord', '~>4.2.0'
 gem 'rake'
 
 gem 'shotgun'
+gem 'bcrypt'
+
+gem 'geokit'
+gem 'rgeo-shapefile'
+gem 'pry'
+gem 'twilio-ruby'
 
 group :test do
   gem 'shoulda-matchers'
