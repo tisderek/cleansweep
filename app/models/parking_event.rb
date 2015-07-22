@@ -53,6 +53,28 @@ class ParkingEvent < ActiveRecord::Base
     week_routes.sort!.first
   end
 
+  def send_sms(body_text)
+
+    to_number = User.find(self.user_id).phone_number
+    client = Twilio::REST::Client.new twilio_SID, twilio_token
+    from = '+14152341719'
+
+    message = client.account.messages.create(
+        from: from,
+        to: to_number,
+        body: body_text
+      )
+  end
+
+  private
+
+  def twilio_SID
+    'AC353193f53993d0d25fde1832142cb278'
+  end
+
+  def twilio_token
+    'a1fdbf3a9b4f14136ce094e57aafa90e'
+  end
 
 
 
