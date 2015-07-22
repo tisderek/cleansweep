@@ -1,0 +1,276 @@
+### Version 2.0.3 - July 8, 2015
+
+- **Form** - URL regexp will now match now works correctly, and matches against non `http://` prefixed urls like `www.google.com`
+
+### Version 2.0.1 - July 6, 2015
+
+- **Form** - `reset` will no longer clear values if no default value is found [#2504](https://github.com/Semantic-Org/Semantic-UI/issues/2504)
+- **Form** - Clarified usage for `reset` in form docs [#2504](https://github.com/Semantic-Org/Semantic-UI/issues/2504)
+
+### Version 2.0.0 - June 30, 2015
+
+- **Form Validation** - Form validation now passes settings through a `fields` object. This is to make form initialization match other components. The previous syntax will continue to work but will produce deprecation notices in console
+- **Form** - `grouped inline field` no longer display horizontally. Use `inline field` instead for horizontal inline field groups.
+- **Tab** - `onTabInit` and `onTabLoad` have been renamed to `onFirstLoad` and `onLoad` respectively. This is to conform to the naming conventions of other modules (no self reference). Previous callbacks will continue to work but will produce deprecation notices in console. Two new callbacks `onVisible` and `onRequest` have been added as well.
+- **Form** - Forms now use `flexbox` for creating field groups. Inline fields now support `(x) wide` sizing using `flex`
+- **Popup** - Popup has been rewritten to drastically improve performance, especially when testing multiple positions.
+- **Transition** - Fallback javascript animations have been removed from UI components like dropdown and popup to increase performance. This removes need for expensive pseudo selectors like `:visible`, `:animated` and `:hidden` and reduces filesize.
+- **Form Validation** - Form validation now uses a single `settings` object like other modules. Using `(fields, settings)` will continue to work but will produce a deprecation notifications in `console`
+- **Form Validation** - Form validation now supports many new validation rules, including some specifically for use with multiple select values.
+- **Transition** - Transition code has been optimized to increase performance. 100% improvement on first animation, and 40% improvement on subsequent animations.
+- **Visibility** - Visibility and sticky now use a more performant [pub/sub pattern](http://davidwalsh.name/pubsub-javascript) that will only attach a single event to context `scroll`.
+- **Form** - Added a host of new styles for form fields autocompleted by your browser, including autocompleted error, and focus states
+- **Form** - Added placeholder color rules for IE, `ms-input-placeholder`
+- **Form** - Fix `errored field` dropdown keyboard selection color
+- **Form** - Adds form `success` state
+- **Form Validation** - Added `is valid` behavior, returns `true/false` if form is valid
+- **Form Validation** - Added `different[field]` rule which requires a field to be different than another field
+- **Form Validation** - `data-validate` now takes precedence over other validation matching schemes like `name` or `id`
+- **Form Validation** - New rules for matching against custom regular expressions
+- **Form Validation** - Form validation now has `minCount`, `maxCount`, and `exactCount` for validating multiple selections
+- **Popup** - Popup now defines a `transform-origin` so animations will be affected by the direction the element is placed
+- **Sidebar** - Improved animation performance through performance debugging. Sidebar now caches, width, height, rtl direction on load.
+- **Visibility/Sticky** - Visibility now uses pub/sub pattern to greatly improve scroll performance when attaching multiple events
+- **All Modules** - Performance logging now delays 500ms instead of 100ms for console logging to ensure all logs are captured in one group
+- **All Modules/Transition** - Transitions no longer use `rotateZ(0deg)` to trigger GPU display of visible state. This causes issues with `transform` creating new stacking context that can disrupt `z-index`.
+- **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
+- **Form** - Form will no longer set a height for `textarea` using the `rows` property
+- **Form** - `inline fields` are now `1em` and do not match label's reduced size
+- **Form** - `field` inside `fields` no longer produce double sized margins.
+- **Form** - Form sizes and input sizes now inherit from `site.variables`
+- **Form Validation** - Fixed bug causing `match` rule not to work as expected.
+- **Form Validation** - Fixed `clear` and `reset` causing validation error to appear on checkbox if empty rule was set on checkbox.
+- **Form Validation** - Form validation now validates correctly on `<select>` change
+- **Form** - Fixed autocompleted `ui selection dropdown` having dropdown icon z-index issues
+- **Form/Input** - `ui labeled input` inside `form` will no longer escape column width. `ui fluid input` will now use input widths shorter than browser default.
+- **Form** - `set value` no longer automatically calls `validate form`
+- **Sidebar** - Sidebar `legacy` animations have been removed. 3D transforms are now available in all supported browsers.
+
+### Version 1.12.0 - April 13, 2015
+
+- **Sticky** - Adds sticky module from `2.x` branch. Sticky elements now use pub/sub with drastically improved performance. Sticky elements that do not fit on page will now scroll at the same speed as the page is scrolled instead of slower.
+
+### Version 1.11.6 - March 27, 2015
+
+- **Form** - Fix `grouped required` fields display issues **Thanks @palmsey**
+
+### Version 1.11.5 - March 23, 2015
+
+- **Dropdown** - Dropdown `focus` color has been adjusted to match forms more closely
+
+### Version 1.11.0 - March 3, 2015
+
+- **Form** - `<select>` now receive error formatting on `form error` **Thanks @davialexandre**
+- **Item ** - `img` inside of `ui item content` now do not receive size formatting by default
+- **Form** - Added `input[type="search"]` styles to `ui form`
+
+### Version 1.10.4 - February 28, 2015
+
+- **API** - Remove console error message when no API url is specified but element is a `form` (defaults to `form` action)
+- **API** - `api` check for [serialize object](https://github.com/macek/jquery-serialize-object) optional dependency no longer produces error when `serializeForm: true` and dependency is not found.
+
+### Version 1.10.0 - February 23, 2015
+
+- **Form Validation** - Adds `containsExactly`, `notExactly`, `isExactly` case sensitive validation rules, make `contains`, `not`, `is` case insensitive.
+- **Form Validation** - `contains` rule is now case insensitive
+- **Form Validation** - Validation messages no longer increase field height on `inline fields` like checkboxes after error appears
+
+### UI Changes
+
+- **Form** - Input rules now apply to `input[type="time"]`
+- **Form Validation** - `get values`, `set values` now support multiple select e.g. `field[]`
+- **Form Validation** - Dropdown and checkbox will now validate after interaction with `on: 'blur'`
+- **Form** - `info message` are no longer hidden by default inside `ui form`
+- **Form** - Lightened error dropdown hover text color to be more legible
+
+### Version 1.8.0 - January 23, 2015
+
+- **Form** - Form now has new methods `reset`, `clear`, `set value(s)`, and `read value(s)` for modifying and reading form data. Check docs for details on implementation. **Thanks @mktm**
+- **Form** - Form will now prevent browsers from resubmitting form repeatedly when keydown is pressed on input field.
+- **Button** - Fixes formatting for `disabled button` inside `ui buttons`
+
+### Version 1.7.0 - January 14, 2015
+
+- **Site** - Form input highlighting color added (helps differentiate form colors with autocompleted fields). Default text highlighting color moved from highlighter yellow to a mellow blue.
+- **Popup** - Popup now uses `preserve: false` by default, this is slightly less performant but will reduce page clutter caused by leaving generated elements in the DOM
+- **Sidebar** - `setup layout` not occurs synchronously if you initialize a sidebar without the proper html. This makes sure calls to sidebar will occur correctly before the page is setup. A new setting `delaySetup` will override this, increasing performance.
+- **Modules** - Use of `$.proxy` swapped to native `function.call()` for performance gains across all modules
+
+### Version 1.6.0 - January 05, 2015
+
+- **Form** - ``ui search dropdown`` inside a form has incorrect focus style
+
+### Version 1.5.0 - December 30, 2014
+
+- **Progress** - Progress bars now display all intermediary percentage values when animating. Improved performance when progress bar is rapidly updated.
+- **Form** - Fixed (x) wide field not having correct bottom field margin when in ``fields`` group on tablet or mobile
+- **Form** - ``ui input`` now receives the same formatting as a normal input inside an ``inline field``
+- **Input** - Fixed bug when ``ui action input`` uses a ``ui icon button``, button was receiving `i.icon` formatting.
+- **List** - Fixed bug when using ``ui icon button`` or ``ui icon header`` causing element to receive icon formatting
+
+### Version 1.4.0 - December 22, 2014
+
+- **Form** - Form inputs without ``type`` specified are now formatted **Thanks PSyton**
+- **Menu** - Fix formatting of ``ui selection dropdown`` inside ``menu``
+
+### Version 1.3.0 - December 17, 2014
+
+- **Form** - Form will no longer process validation rules on disabled fields
+- **Table** - Table now has a ``structured table`` type, which removes some formatting considerations to support complex table layouts with ``colspan`` and ``rowspan``
+- **Form** - Fixed positioning of horizontal field groups, aka ``fields`` for mobile.
+
+### Version 1.2.0 - December 08, 2014
+
+- **Form** - Form validation now has parameter ``optional`` which will only validate a field against a set of rules if the user does not leave it blank **Thanks DHNCarlos**
+- **Checkbox** - JS Checkbox now handles several variations of html. Labels can be before inputs, after, or not included at all. This should work better with server side form generation.
+- **Item/Card** - Default link formatting inside element simplified to avoid adjusting other nested ``ui`` link styles
+- **Form** - Fixes required checkbox asterisks formatting incorrect
+- Fixed documentation on dropdown actions, form field widths, form validation types, and many odds & ends
+
+### Version 1.1.0 - December 02, 2014
+
+- **Transition** - Transition's caching of final display state and animation existence now has improved performance.
+- **Icon** - ``remove icon`` is now formatted correctly when used as ``remove link icon``
+
+### Version 1.0.0 - November 24, 2014
+
+- **Form** - Date field has been removed, use a ``ui icon input`` with a ``calendar icon`` instead
+- **General** - CSS animations now hint with will change properties to increase performance in supported browsers
+- **Button** - Now has compact form, used for fitting into tight spaces
+- **Form** - Form now has a success state which will automatically display success messages
+- **Form** - Grouped fields and inline fields can now have labels
+- **Form** - Forms in 'success' state will now show success messages inside
+- **Form** - Inputs now use 1em font size and correctly match selection dropdown height
+- **Form** - Inverted form now properly styles loader
+- **Form** - New field type ``required`` formats labels to show filling out field is mandatory
+- **Label** - Now has compact form, for fitting into tight spaces
+- **List** - Child lists can now be formatted to sit inside text content
+
+### Version 0.17.0 - May 9, 2014
+
+- **Form, Input** - Fixes ``ui input`` to work correctly inside ``inline field``
+
+### Version 0.16.0 - April 22, 2014
+
+- **Form** - Fields can now be aligned to a grid **Thanks seralex-vi**
+- **Checkbox** - Fixes issue where checkboxes with multiple line labels were appearing formatted incorrectly.
+
+### Version 0.15.3 - April 04, 2014
+
+- Fixes a variety of issues with malformed examples (thanks community)
+
+### Version 0.15.2 - Mar 28, 2014
+
+- **Menu** - Fixes formatting of attached segments with menus
+
+### Version 0.15.0 - Mar 14, 2014
+
+- **Form** - Forms, Dropdowns, and Inputs now have matching padding size, and use 1em font size to appear same size as surrounding text
+- **Form Validation** - Form validation now automatically revalidates a selection dropdown on change when invalid
+
+### Version 0.14.0 - Mar 03, 2014
+
+- **Form** - Form fields with errors will now properly style dropdown elements **Thanks Musatov**
+
+### Version 0.13.1 - Feb 28, 2014
+
+- **Checkbox** - Fixes checkbox appearance inside inverted forms
+- **Input** - Fixes ui input to inherit form sizing
+- **Form Validation** -  Fixes form validation regular expression matching **Thanks icefox0801**
+
+### Version 0.13.0 - Feb 20, 2014
+
+- **Form** - Grouped form fields now have responsive styles for mobile
+- **Form Validation** - Form validation now rechecks on all form change events, not just input change
+- **Menu** - Fixes dropdown formatting when used **inside* a menu item
+- **Menu** - Fixes formatting of grouped icon buttons inside menus
+
+### Version 0.12.4 - Jan 29, 2014
+
+- **Form** - Fixes issue with onSuccess not allowing cancellation of form submit in form validation
+
+### Version 0.12.2 - Jan 21, 2014
+
+- **Form Validation** - Adding custom validation is now simpler, uses syntax ``$('.form').form('add prompt', identifier, 'Error message');``
+
+### Version 0.12.1 - Jan 15, 2014
+
+- **Message** - Prevents close icon from being misformatted in icon message **thanks MohammadYounes**
+
+Some updates to docs formatting
+
+### Version 0.12.0 - Jan 06, 2014
+
+- **Icon** - Fixes unnecessary formatting on thumbs up/down
+- **Form** - Fixes all validation input to be trimmed for whitespace
+
+### Merry Christmas!
+
+-**Transition**: Transition has been completely rewritten, performance should be about 10x after first animation due to caching and use of request animation frame
+
+### Version 0.10.0 - Dec 05, 2013
+
+- **Grid** - Adds ``doubling`` responsive variation which automatically formats content spacing based on device type
+- **Form Validation** - Adds two new parameters, to allow for changing of revalidation and delay on input
+- **Dropdown** - Value can be retrieved even in instances where forms arent used
+
+### Version 0.9.4 - Nov 24, 2013
+
+- **Form** - Adds input type="url" to forms
+
+### Version 0.9.1 - Nov 7, 2013
+
+- **Accordion** - Adds formatting for nested accordions
+
+### Version 0.9.0 - Nov 5, 2013
+
+- **Form** - Darkens placeholder text color to be more visible
+
+### Version 0.8.3 - Oct 30, 2013
+
+- **Form** - Fixes issues with form validation not escaping regex characters
+- **Form** - Errored fields now have their icons and corner labels colored appropriately
+- **Labels** - Fixes formatting of links inside labels
+
+### Version 0.7.0 - Oct 22, 2013
+
+- **List** - Adds documentation for module format
+- **Sidebar** - Sidebar now have several size variations, and a new styled variation that comes preformatted
+- Code samples will now automatically format indention
+
+### Version 0.6.3 - Oct 15, 2013
+
+- Dropdown changeText and updateForm have been deprecated and will be removed in 1.0
+- Simplified possible dropdown actions changeText and updateForm are now consolidated into activate which is the new default
+
+### Version 0.6.1 - Oct 15, 2013
+
+- Adds small/large sizing of modal, reformats default modal size to be slightly inset from page grid
+- Adds automatic menu formatting for buttons inside menus
+- Fixes right menu formatting in secondary menus
+
+### Version 0.3.6 - Oct 7, 2013
+
+- Updates form and accordion docs
+- Dropdown action default is now automatically determined based on type of dropdown, select dropdowns now will update form fields with default options
+- Adds more html5 form support for forms (deneuxa)
+
+### Version 0.3.2 - Oct 2, 2013
+
+- Dropdown now formats top and right arrow icons automatically with icon coupling with sub menus
+
+### Version 0.2.5 - Sep 28, 2013
+
+- Fixes dropdown to now set active item to whatever hidden input field is when using action updateForm
+
+### Version 0.2.1 - Sep 28, 2013
+
+- Modals can now have an icon in its left content that will be automatically formatted
+
+### Version 0.2.0 - Sep 28, 2013
+
+- Removed selector count from performance logs
+
+### Version 0.1.0 - Sep 25, 2013
+
+- Updated documentation for sidebar, transition, and form validation

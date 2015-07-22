@@ -1,0 +1,101 @@
+<%= erb :_head_content %>
+
+<!-- Mapbox -->
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0px; bottom:0px; width:100%; }
+  </style>
+  </head>
+  <body>
+  <style>
+  .massive.ui.button {
+    display:block;
+    position:absolute;
+    z-index:100;
+    text-align:center;
+    }
+  </style>
+
+  <div id='map'></div>
+  <button href='#' id='geolocate' class="massive ui blue button" style="  top:50%;left:50%;">Find me</button>
+
+  <script>
+    L.mapbox.accessToken = 'pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA';
+    var geolocate = document.getElementById('geolocate');
+    var map = L.mapbox.map('map', 'mapbox.emerald', {
+      center: [37.7833, -122.4167],
+      zoom: 13
+    });
+
+    var myLayer = L.mapbox.featureLayer().addTo(map);
+
+    // This uses the HTML5 geolocation API, which is available on
+    // most mobile browsers and modern browsers, but not in Internet Explorer
+    //
+    // See this chart of compatibility for details:
+    // http://caniuse.com/#feat=geolocation
+    if (!navigator.geolocation) {
+        geolocate.innerHTML = 'Geolocation is not available';
+    } else {
+        geolocate.onclick = function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            map.locate();
+        };
+    }
+
+    // Once we've got a position, zoom and center the map
+    // on it, and add a single marker.
+    map.on('locationfound', function(e) {
+        map.fitBounds(e.bounds);
+
+        myLayer.setGeoJSON({
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [e.latlng.lng, e.latlng.lat]
+            },
+            properties: {
+                'marker-size': 'large',
+                'marker-color': '#3bb2d0',
+                'marker-symbol': 'car'
+            }
+        });
+
+        // And hide the geolocation button
+        geolocate.parentNode.removeChild(geolocate);
+    });
+
+    // If the user chooses not to allow their location
+    // to be shared, display an error message.
+    map.on('locationerror', function() {
+        geolocate.innerHTML = 'Position could not be found';
+    });
+  </script>
+<style>
+  #parking-form {
+    position:absolute;
+    bottom:80px;
+    top:80%;
+    left:46%;
+    width:100%;
+     }
+ </style>
+
+<div id="parking-form"  >
+  <form action = "/park" method="post">
+
+        <input type="hidden" name="lng" id="lng" value="" />
+        <input type="hidden" name="lat" id="lat" value="" />
+
+<!--         <input type="text" name="lng" id="lng" value="" />
+        <input type="text" name="lat" id="lat" value="" /> -->
+
+    <button type="submit" id="park" class="massive ui orange button"  >
+      I'm parked here!
+    </button>
+
+  </form>
+</div>
+
+

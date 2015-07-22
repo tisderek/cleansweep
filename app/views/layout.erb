@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= erb :_head_content %>
+</head>
+
+
+<body style="background-color: #fafafa;
+background-image: url(http://www.transparenttextures.com/patterns/light-wool.png);">
+
+  <div class="ui top attached large inverted blue menu">
+    <a class="item">
+      <i class="sidebar icon"></i>
+    </a>
+    <a style="border-left: none" class="header item">
+      Clean Sweep
+    </a>
+  </div>
+<div class="ui bottom attached segment pushable">
+  <div class="ui inverted labeled icon left inline vertical sidebar menu">
+    <a class="item" id="park-now" href="/park">
+      <i class="location arrow icon"></i>
+      Park Now
+    </a>
+    <a class="item" id="parked-now" href="/parked">
+      <i class="car icon"></i>
+      Parked
+    </a>
+    <a class="item" id="contacts" href="/contacts">
+      <i class="book icon"  ></i>
+      Contacts
+    </a>
+    <a class="item">
+      <i class="options icon"></i>
+      Options
+    </a>
+    <a class="item">
+      <i class="external icon"></i>
+      Logout
+    </a>
+  </div>
+  <div class="pusher">
+    <div class="ui basic segment">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="/semantic/semantic.js"></script>
+  <script>
+    $('.large.menu').children().first().on('click', function(){
+      $('.ui.sidebar').sidebar('toggle');
+    })
+  </script>
+
+</body>
+</html>
+
+
