@@ -1,7 +1,7 @@
 helpers do
 
   def signup
-    @user = User.new(params[:user])
+    @user = User.new(name: params[:name], phone_number: params[:phone_number])
     @user.password = params[:password]
     @user.save!
   end
@@ -13,8 +13,6 @@ helpers do
       @user.generate_token
       session[:token] = @user.token
       redirect "/dashboard"
-    else
-      redirect "/wrongpassword"
     end
 
   end
@@ -30,6 +28,14 @@ helpers do
   def logout
     session[:token] = nil
     redirect "/"
+  end
+
+  def logged_in?
+    if session[:token] == nil
+      false
+    else
+      true
+    end
   end
 
   def current_user

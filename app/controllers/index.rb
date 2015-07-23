@@ -1,5 +1,5 @@
 get '/' do
-  if current_user
+  if logged_in?
     erb :dashboard
   else
     erb :splash, layout: false
@@ -12,16 +12,10 @@ post '/sessions' do
   login
 end
 
-get '/sessions/logout' do
-
+get '/logout' do
+  logout
   redirect '/'
 end
-
-# delete '/sessions/:id' do
-#   logout
-
-#   redirect '/'
-# end
 
 #----------- USERS -----------
 
@@ -30,12 +24,9 @@ get '/dashboard' do
   erb :dashboard
 end
 
-# get '/users/new' do
-
-#   erb :"sessions/_signup"
-# end
 
 post '/users' do
+  
   signup
   login
   #RF to current_user
