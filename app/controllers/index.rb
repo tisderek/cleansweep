@@ -4,7 +4,6 @@ get '/' do
   else
     erb :splash, layout: false
   end
-  erb :splash
 end
 
 #----------- SESSIONS -----------

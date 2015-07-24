@@ -22,9 +22,6 @@ helpers do
         nil
       else
         User.find(session[:token])
-    @user = User.find_by(email: params[:user][:email])
-    if @user && @user.password == params[:password]
-      session[:user_id] = @user.id
     end
   end
 
