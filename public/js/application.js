@@ -16,16 +16,17 @@ $(document).ready(function() {
     $('#lng').attr('value', lng);
   })
 
-   $('#send_sms').on('click', function(){
+    $('#send_sms').on('click', function(e){
+      e.preventDefault();
+      var route_val = $(this).attr('href');
 
-      // var data_val =
-      // var route_val =
-      // var =
-
-      // $.ajax(
-
-
-      //   "/text")
+      $.ajax({
+        url: route_val
+      }).done(function(response){
+       console.log('yay');
+      }).fail(function(response){
+       console.log('yay');
+       })
   })
 });
 

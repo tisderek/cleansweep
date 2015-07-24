@@ -50,7 +50,7 @@
           </div>
           <!-- </div> -->
         </div>
-      <div class="ui vertical segment">
+      <div id="text-toggle-buttons" style="padding-left: 25px" class="ui vertical segment">
         <div class="content">
           <div class="ui top left attached label">
             Text Notifications
@@ -72,10 +72,10 @@
         </div>
       </div>
       <div class="ui two bottom attached buttons">
-        <div id="send_sms" class="ui basic blue button" >
+        <a href="/parked/<%= parked.id %>/text" id="send_sms" class="ui basic blue button" >
           <i class="send icon"></i>
           Send text
-        </div>
+        </a>
         <div class="ui basic red button">
           <i class="trash icon"></i>
           Delete

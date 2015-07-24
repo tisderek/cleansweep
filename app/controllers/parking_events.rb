@@ -38,14 +38,14 @@ get '/parked/:id' do
   end
 end
 
-#----------- SEND TXT  -----------
+# ----------- SEND TXT  -----------
 
-# get '/parked/:id/text' do
-# @parked = ParkingEvent.find(params[:id])
-# current_user.send_sms(
-#     "Hey, #{current_user.name}! CleanSweep over here. The next street sweep for the vehicle you just parked is #{@parked.get_route.strftime("%A at %-l:%M%P")}"
-#   )
+get '/parked/:id/text' do
+  @parked = ParkingEvent.find(params[:id])
+  current_user.send_sms(
+      "Hey, #{current_user.name}! CleanSweep over here. The next street sweep for the vehicle you just parked is #{@parked.get_route.strftime("%A at %-l:%M%P")}"
+    )
 
-# end
+end
 
 
