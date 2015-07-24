@@ -46,9 +46,33 @@
 					</div>
 					<div class="ui bottom attached tab segment" data-tab="second">
 					  <form id="signup" method="post" action="/users" class="ui large form">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="smile-o icon"></i>
+                  <input type="text" name="name" id="signup_name" placeholder="Name">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="phone icon"></i>
+                  <input type="text" name="phone_number" id="login_phone_number" placeholder="Phone number (9 digits)">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon"></i>
+                  <input type="password" name="password" placeholder="Password">
+                </div>
+              </div>
+              <input type="submit" value="Join" class="ui fluid large green button">
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script src="/semantic/semantic.js"> </script>
-<script> 
+<script>
 	$('.menu .item').tab();
 	// jQuery(function($){
 	//    $("#login_phone_number").mask("(999) 999-9999");
