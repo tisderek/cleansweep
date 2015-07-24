@@ -1,7 +1,7 @@
 <h2>Your Contacts</h2>
 <div class="ui container">
 <div class="ui accordion">
-  <% contacts.each do |c| %>
+  <% current_user.contacts.each do |c| %>
     <div class="title">
       <i class="dropdown icon"></i>
       <%= c.name %>

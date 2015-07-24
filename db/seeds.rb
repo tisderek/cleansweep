@@ -8,17 +8,16 @@ User.create(
   )
 
 Contact.create(
+    name: "Carol",
+    phone_number: 4154168654,
+    user_id: 1
+  )
+Contact.create(
     name: "Leo",
     phone_number: 4154168654,
     user_id: 1
   )
 
-User.create(
-    name: "admin",
-    email: "the@admin.com",
-    phone_number: 0,
-    password: 123123
-  )
 User.create(
     name: "Harvey",
     email: "the@admin.com",
@@ -212,7 +211,6 @@ RGeo::Shapefile::Reader.open('db/routes/routes.shp') do |file|
   end
   file.rewind
   record = file.next
-  break if record.index == 1000
 end
 
 ParkingEvent.create(
