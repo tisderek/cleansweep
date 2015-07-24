@@ -27,6 +27,8 @@ require 'geokit'
 require 'pry'
 require 'twilio-ruby'
 
+require 'dotenv'
+Dotenv.load
 
 
 # Some helper constants for path-centric logic

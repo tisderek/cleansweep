@@ -56,7 +56,7 @@ class ParkingEvent < ActiveRecord::Base
   def send_sms(body_text)
 
     to_number = User.find(self.user_id).phone_number
-    client = Twilio::REST::Client.new twilio_SID, twilio_token
+    client = Twilio::REST::Client.new ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]
     from = '+14152341719'
 
     message = client.account.messages.create(
@@ -77,13 +77,13 @@ class ParkingEvent < ActiveRecord::Base
   end
 
 
-  def route_start
-    (self.get_route[0].fromhour).strftime('%l:%M%P')
-  end
+  # def route_start
+  #   (self.get_route[0].fromhour).strftime('%l:%M%P')
+  # end
 
-  def route_end
-    (self.get_route[0].tohour).strftime('%l:%M%P')
-  end
+  # def route_end
+  #   (self.get_route[0].tohour).strftime('%l:%M%P')
+  # end
 
 
 end

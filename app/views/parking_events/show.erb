@@ -72,9 +72,9 @@
         </div>
       </div>
       <div class="ui two bottom attached buttons">
-        <div class="ui basic blue button" >
+        <div id="send_sms" class="ui basic blue button" >
           <i class="send icon"></i>
-          Send SMS
+          Send text
         </div>
         <div class="ui basic red button">
           <i class="trash icon"></i>
@@ -102,7 +102,7 @@
       <div class="extra content">
         <a>
           <i class="wait icon"></i>
-          Created on <%= parked.created_at.strftime("%A, %b %d at %l:%M%P") %>
+          <%= parked.created_at.strftime("%A, %b %d at %l:%M%P") %>
         </a>
       </div>
     </div>

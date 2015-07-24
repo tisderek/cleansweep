@@ -27,11 +27,6 @@ post '/sessions' do
   redirect '/home'
 end
 
-# delete '/sessions/:id' do
-#   logout
-#   redirect '/'
-# end
-
 #----------- USERS -----------
 
 get '/dashboard' do
@@ -41,7 +36,7 @@ end
 
 
 post '/users' do
-  
+
   signup
   login
   #RF to current_user

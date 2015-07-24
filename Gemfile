@@ -20,6 +20,8 @@ gem 'geokit'
 gem 'rgeo-shapefile'
 gem 'pry'
 gem 'twilio-ruby'
+gem 'dotenv'
+
 
 group :test do
   gem 'shoulda-matchers'

@@ -16,5 +16,16 @@ $(document).ready(function() {
     $('#lng').attr('value', lng);
   })
 
+   $('#send_sms').on('click', function(){
+
+      // var data_val =
+      // var route_val =
+      // var =
+
+      // $.ajax(
+
+
+      //   "/text")
+  })
 });
 
