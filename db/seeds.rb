@@ -98,7 +98,7 @@ User.create(
     password: 123123
   )
 User.create(
-    name: "Ma"Kevin" Yan",
+    name: "Ma \"Kevin\" Yan",
     email: "the@admin.com",
     phone_number: 4089604418,
     password: 123123
