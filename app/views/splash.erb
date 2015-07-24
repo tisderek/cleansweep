@@ -2,129 +2,58 @@
 <html lang="en">
 <head>
   <%= erb :_head_content %>
+<style type="text/css">
+  .column {
+    max-width: 400px;
+  }
+
+</style>
 </head>
 <body>
-  <div class="ui inverted vertical masthead center aligned segment">
+  <div class="ui vertical masthead center aligned segment">
+	<br>
+	<br>
+	<br>
 
-    <div class="ui text container">
-      <h1 class="ui inverted header">
-        Imagine-a-Company
-      </h1>
-      <h2>Do whatever you want when you want to.</h2>
-      <div class="ui huge primary button">
-        Get Started
-        <i class="right arrow icon"></i>
-      </div>
-    </div>
+  <div class="ui text container">
+    <h1 class="ui orange header">
+      I'm passionate about not getting street sweeping tickets
+    </h1>
+    <h2>Clean Sweep is here so that we can keep those $66</h2>
+    <br>
+    	<div class="ui middle aligned center aligned grid">
+    	  <div class="column">
+					<div class="ui top attached tabular menu">
+					  <a class="item active" data-tab="first">Login</a>
+					  <a class="item" data-tab="second">Signup</a>
+					</div>
+					<div class="ui bottom attached tab segment active" data-tab="first">
+						<form id="login" method="post" action="/sessions" class="ui large form">
+    	        <div class="field">
+    	          <div class="ui left icon input">
+    	            <i class="phone icon"></i>
+    	            <input type="text" name="phone_number" id="login_phone_number" placeholder="9-digit number">
+    	          </div>
+    	        </div>
+    	        <div class="field">
+    	          <div class="ui left icon input">
+    	            <i class="lock icon"></i>
+    	            <input type="password" name="password" placeholder="Password">
+    	          </div>
+    	        </div>
+    	        <input type="submit" value="Login" class="ui fluid large primary submit button">
+      	    </form>
+					</div>
+					<div class="ui bottom attached tab segment" data-tab="second">
+					  <form id="signup" method="post" action="/users" class="ui large form">
 
-  </div>
-
-<div class="splash-container">
-		<div class="splash">
-				<h1 class="splash-head">No more Street sweeping tickets</h1>
-				<p class="splash-subhead">
-						Our mission is for you to keep those $66
-				</p>
-				<p>
-						<a href="" class="pure-button pure-button-primary">Get Started</a>
-				</p>
-		</div>
-</div>
-<div class="content-wrapper">
-<!--
-	<div class="ribbon l-box-lrg pure-g">
-		<h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2	>
-		<div class="pure-g">
-			<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-				<h3 class="content-subhead">
-						<i class="fa fa-rocket"></i>
-						Get Started Quickly
-				</h3>
-				<p>w
-						Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-				</p>
-				</div>
-				<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-					<h3 class="content-subhead">
-							<i class="fa fa-mobile"></i>
-							Responsive Layouts
-					</h3>
-					<p>
-							Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales 	pellentesque elementum.
-					</p>
-				</div>
-				<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-					<h3 class="content-subhead">
-							<i class="fa fa-th-large"></i>
-							Modular
-					</h3>
-					<p>
-							Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales 	pellentesque elementum.
-					</p>
-				</div>
-				<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-					<h3 class="content-subhead">
-							<i class="fa fa-check-square-o"></i>
-							Plays Nice
-					</h3>
-					<p>
-							Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales 	pellentesque elementum.
-					</p>
-				</div>
-		</div>
-	</div> -->
-
-<!-- 		<div class="ribbon l-box-lrg pure-g">
-				<div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-						<img class="pure-img-responsive" alt="File Icons" width="300" src="/img/common/file-icons.png">
-				</div>
-				<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
-
-						<h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
-
-						<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor.
-						</p>
-				</div>
-		</div> -->
-
-		<div class="content">
-				<h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
-
-				<div class="pure-g">
-						<div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-								<h3> <i class="icon icon-user-plus"></i> Get started! </h3>
-								<%= erb :"sessions/_signup" %>
-						</div>
-
-						<div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-								<%= erb :"sessions/_login" %>
-								<h4>Contact Us</h4>
-								<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-										quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-										consequat.
-								</p>
-
-								<h4>More Information</h4>
-								<p>
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-										tempor incididunt ut labore et dolore magna aliqua.
-								</p>
-						</div>
-				</div>
-
-		</div>
-
-		<div class="footer l-box is-center">
-				Made by Derek Gerson
-		</div>
-
-</div>
-
+<script src="/semantic/semantic.js"> </script>
+<script> 
+	// $('.menu .item').tab();
+	// jQuery(function($){
+	//    $("#login_phone_number").mask("(999) 999-9999");
+	//    $("#signup_phone_number").mask("(999) 999-9999");
+	// });
+</script>
 </body>
 </html>

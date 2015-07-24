@@ -1,7 +1,7 @@
 helpers do
 
   def signup
-    @user = User.new(params[:user])
+    @user = User.new(name: params[:name], phone_number: params[:phone_number])
     @user.password = params[:password]
     @user.save!
   end
@@ -22,9 +22,6 @@ helpers do
         nil
       else
         User.find(session[:token])
-    @user = User.find_by(email: params[:user][:email])
-    if @user && @user.password == params[:password]
-      session[:user_id] = @user.id
     end
   end
 
@@ -39,6 +36,14 @@ helpers do
   def logout
     session[:token] = nil
     redirect "/"
+  end
+
+  def logged_in?
+    if session[:token] == nil
+      false
+    else
+      true
+    end
   end
 
   def current_user

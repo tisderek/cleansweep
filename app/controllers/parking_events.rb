@@ -27,8 +27,11 @@ end
 
 get '/parked/:id' do
   @parked = ParkingEvent.find(params[:id])
+  @parked.send_sms(
+    "CleanSweep over here. The next street sweep for the vehicle you just parked is #{@parked.get_route.strftime("%A at %-l:%M%P")}"
+  )
 
-  if @parked.get_route.nil?
+  if @parked.get_route == nil
     erb :"/parking_events/404", locals: { header: "Whoops" }
   else
     erb :"/parking_events/show", locals: { parked: @parked,  header: "Here's the 411" }

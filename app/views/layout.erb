@@ -4,104 +4,50 @@
   <%= erb :_head_content %>
 </head>
 
-
-<body style="background-color: #fafafa;
-background-image: url(http://www.transparenttextures.com/patterns/light-wool.png);">
-
-  <div class="ui top attached large inverted blue menu">
+<body>
+  <div class="ui top attached large inverted borderless blue menu">
     <a class="item">
       <i class="sidebar icon"></i>
     </a>
-    <a style="border-left: none" class="header item">
+    <a class="header item">
       Clean Sweep
     </a>
   </div>
-<div class="ui bottom attached segment pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <a class="item" id="park-now" href="/park">
-      <i class="location arrow icon"></i>
-      Park Now
-    </a>
-    <a class="item" id="parked-now" href="/parked">
-      <i class="car icon"></i>
-      Parked
-    </a>
-    <a class="item" id="contacts" href="/contacts">
-      <i class="book icon"  ></i>
-      Contacts
-    </a>
-    <a class="item">
-      <i class="options icon"></i>
-      Options
-    </a>
-    <a class="item">
-      <i class="external icon"></i>
-      Logout
-    </a>
-  </div>
-  <div class="pusher">
-    <div class="ui basic segment">
-        <%= yield %>
+  <div class="ui bottom attached segment pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <a class="item" id="park-nav-item" href="/park">
+        <i class="location arrow icon"></i>
+        Park Now
+      </a>
+      <a class="item" id="parked-nav-item" href="/parked">
+        <i class="car icon"></i>
+        Parked
+      </a>
+      <a class="item" id="contacts-nav-item" href="/contacts">
+        <i class="book icon"  ></i>
+        Contacts
+      </a>
+      <a class="item" id="options-nav-item" href="/options">
+        <i class="options icon"></i>
+        Options
+      </a>
+      <a class="item" id="logout-nav-item" href="/logout">
+        <i class="external icon"></i>
+        Logout
+      </a>
+    </div>
+    <div class="pusher">
+      <div class="ui basic segment">
+          <%= yield %>
       </div>
     </div>
   </div>
-</div>
+
   <script src="/semantic/semantic.js"></script>
   <script>
     $('.large.menu').children().first().on('click', function(){
       $('.ui.sidebar').sidebar('toggle');
     })
   </script>
-
-</body>
-</html>
-
-
-  <!-- normalize.css -->
-  <link rel="stylesheet" href="/css/normalize.css">
-
-  <!--  application.css is where you put your styles  -->
-  <link rel="stylesheet" href="/css/application.css">
-
-  <!-- purecss -->
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-  <link rel="stylesheet" href="/css/pure_custom.css">
-
-  <!-- semantic ui -->
-  <link rel="stylesheet" href="/semantic/semantic.css">
-  <script src="/semantic/semantic.js"></script>
-
-  <!-- fonticon -->
-  <script src="https://use.fonticons.com/e24099f8.js"></script>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
-
-  <title>Clean Sweep</title>
-</head>
-<body>
-<!--   <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-    <p class="pure-menu-heading" href="">Your Site</a>
-    <ul class="pure-menu-list">
-        <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tour</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
-    </ul>
-  </div> -->
-  <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed" >
-      <a class="pure-menu-heading" style="color:#f97242"> Clean_Sweep </a>
-        <ul class="pure-menu-list" >
-            <li class="pure-menu-item"> <a class="pure-menu-link">Settings</a></li>
-
-        </ul>
-  </div>
-  <br>
-  <br>
-  <div class="pure-content-wrapper">
-    <%= yield %>
-  </div>
-
 </body>
 </html>
