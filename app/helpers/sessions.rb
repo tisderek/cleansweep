@@ -35,7 +35,6 @@ helpers do
 
   def logout
     session[:token] = nil
-    redirect "/"
   end
 
   def logged_in?
