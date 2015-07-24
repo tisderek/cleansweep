@@ -8,12 +8,10 @@ end
 
 #----------- SESSIONS -----------
 
-post '/sessions' do
-  login
-end
-
 get '/logout' do
   logout
+
+  redirect '/'
 end
 
 get '/sessions/new' do
@@ -24,7 +22,6 @@ end
 post '/sessions' do
   login
 
-  redirect '/home'
 end
 
 #----------- USERS -----------

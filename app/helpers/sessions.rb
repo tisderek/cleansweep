@@ -8,11 +8,14 @@ helpers do
 
   def login
   @user = User.find_by(phone_number: params[:phone_number])
-    
-    if @user.password == params[:password]
+  p params
+    if @user
+      @user.password == params[:password]
       @user.generate_token
       session[:token] = @user.token
-      redirect "/dashboard"
+        redirect "/dashboard"
+    else
+        redirect "/"
     end
 
   end
