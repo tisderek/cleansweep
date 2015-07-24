@@ -1,14 +1,14 @@
 helpers do
 
   def signup
-    @user = User.new(name: params[:name], phone_number: params[:phone_number])
+    @user = User.new(name: params[:name], phone_number: params[:phone_number].gsub(/[^\d]/, ""))
     @user.password = params[:password]
     @user.save!
   end
 
   def login
-  @user = User.find_by(phone_number: params[:phone_number])
-  p params
+  @user = User.find_by(phone_number: params[:phone_number].gsub(/[^\d]/, ""))
+  p params[:phone_number].gsub(/[^\d]/, "")
     if @user
       @user.password == params[:password]
       @user.generate_token
