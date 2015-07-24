@@ -13,8 +13,6 @@ helpers do
       @user.generate_token
       session[:token] = @user.token
       redirect "/dashboard"
-    else
-      redirect "/wrongpassword"
     end
 
   end
@@ -24,6 +22,17 @@ helpers do
         nil
       else
         User.find(session[:token])
+    @user = User.find_by(email: params[:user][:email])
+    if @user && @user.password == params[:password]
+      session[:user_id] = @user.id
+    end
+  end
+
+  def current_user
+      if session[:user_id] == nil
+        nil
+      else
+        User.find(session[:user_id])
       end
   end
 
@@ -42,6 +51,7 @@ helpers do
 
   def user_id
     current_user.id
+    session[:user_id] = nil
   end
 
 end

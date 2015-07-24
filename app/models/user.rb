@@ -34,8 +34,5 @@ class User < ActiveRecord::Base
         body: body_text
       )
   end
-
-
-
-
 end
+

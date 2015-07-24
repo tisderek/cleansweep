@@ -20,3 +20,6 @@ $(document).ready(function() {
 
 /// Menu sidebar show ///
 
+
+  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+});

@@ -52,3 +52,4 @@ ParkingEvent.create(
 )
 
 ParkingEvent.create(lat: 37.784126, lng: -122.395826)
+User.create(name: "admin", password: "admin", phone_number: 0)

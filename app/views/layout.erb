@@ -57,3 +57,51 @@ background-image: url(http://www.transparenttextures.com/patterns/light-wool.png
 </html>
 
 
+  <!-- normalize.css -->
+  <link rel="stylesheet" href="/css/normalize.css">
+
+  <!--  application.css is where you put your styles  -->
+  <link rel="stylesheet" href="/css/application.css">
+
+  <!-- purecss -->
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <link rel="stylesheet" href="/css/pure_custom.css">
+
+  <!-- semantic ui -->
+  <link rel="stylesheet" href="/semantic/semantic.css">
+  <script src="/semantic/semantic.js"></script>
+
+  <!-- fonticon -->
+  <script src="https://use.fonticons.com/e24099f8.js"></script>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title>Clean Sweep</title>
+</head>
+<body>
+<!--   <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+    <p class="pure-menu-heading" href="">Your Site</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tour</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
+    </ul>
+  </div> -->
+  <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed" >
+      <a class="pure-menu-heading" style="color:#f97242"> Clean_Sweep </a>
+        <ul class="pure-menu-list" >
+            <li class="pure-menu-item"> <a class="pure-menu-link">Settings</a></li>
+
+        </ul>
+  </div>
+  <br>
+  <br>
+  <div class="pure-content-wrapper">
+    <%= yield %>
+  </div>
+
+</body>
+</html>
