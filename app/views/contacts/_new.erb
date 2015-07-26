@@ -1,8 +1,28 @@
-<form action="/contacts" method="post" class="pure-form">
-  <fieldset>
-    <legend> New contact information </legend>
-    <input type="text" name="name" placeholder="Name" />
-    <input type="text" name="phone_number" placeholder="Phone" />
-    <input type="submit" value="Add" class="pure-button pure-button-success" />
-  </fieldset>
-</form>
+<div class="ui form" action="/contacts" method="post">
+
+  <div class="inline field">
+    <label>Name</label>
+    <input type="text" name="name">
+  </div>
+  <div class="inline field">
+    <label>Phone Number</label>
+    <input type="tel" name="phone_number">
+  </div>
+  <div class="inline field">
+    <label>Phone Number</label>
+    <input type="tel" name="phone_number">
+  </div>
+  <div class="inline field">
+    <div class="ui toggle checkbox">
+      <input type="checkbox" tabindex="0" class="hidden">
+      <label>Notify 1</label>
+    </div>
+  </div>
+  <div class="inline field">
+    <div class="ui toggle checkbox">
+      <input type="checkbox" tabindex="0" class="hidden">
+      <label>Notify 2</label>
+    </div>
+  </div>
+
+</div>

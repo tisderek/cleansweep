@@ -1,12 +1,14 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+
+  // hide park button
   $('#park').hide();
+
+  // show park button after findme button is clicked 
   $("#geolocate").on('click', function(){
     $('#park').fadeIn('medium',function(){})
   })
 
+  // fill hidden forms w lat&lng when park btn is clicked
   $('#park').on('click', function(){
 
     var lat = myLayer._geojson.geometry.valueOf().coordinates[1];
@@ -16,25 +18,47 @@ $(document).ready(function() {
     $('#lng').attr('value', lng);
   })
 
-    $('#send_sms').on('click', function(e){
-      e.preventDefault();
-      var route_val = $(this).attr('href');
+  // send sms ajax call
+  $('#send_sms').on('click', function(e){
+    e.preventDefault();
 
-      $.ajax({
-        url: route_val
-      }).done(function(response){
-       console.log('yay');
-      }).fail(function(response){
-       console.log('yay');
-       })
+    var route_val = $(this).attr('href');
+
+    $.ajax({
+      url: route_val
+    })
   })
-});
+
+  // phone number emdashes in login/signup format
+  jQuery(function($){
+     $("#signup_phone_number").mask("(999) 999-9999");
+     $("#login_phone_number").mask("(999) 999-9999");
+  });
+
+  // append add contact form 
+  $('#add-contact-btn').on('click', function(){
+    event.preventDefault();
+
+    $.ajax({
+      url: '/contacts/new',      
+    })
+
+    .done(function(rData){
+      console.log(rData);
+      $('#user-contacts').append(rData);
+      // $(this).hide()
+      // $(".post-container").last().append(rData);
+    })
+
+    .fail(function(rData){
+      console.log("fail")
+    console.log(rData)  
+    })
+  })
 
 
-jQuery(function($){
-   $("#signup_phone_number").mask("(999) 999-9999");
-   $("#login_phone_number").mask("(999) 999-9999");
 });
+
 
 
 /*

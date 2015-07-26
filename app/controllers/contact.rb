@@ -1,6 +1,11 @@
 
 #----------- CREATE -----------
 
+get '/contacts/new' do
+
+  erb :"/contacts/_new", layout: false
+end
+
 post '/contacts' do
   Contact.create(
     name: params[:name],
@@ -24,7 +29,7 @@ end
 get '/contacts' do
   @contacts = Contact.where(user_id: user_id)
 
-  erb :"/contacts/_index", locals: { contacts: @contacts }
+  erb :"/contacts/index", locals: { contacts: @contacts }
 end
 
 #----------- EDIT -----------
