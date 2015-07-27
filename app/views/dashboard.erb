@@ -1,3 +1,27 @@
 <h1> Welcome, <%= current_user.name %> ! </h1>
 
-
+<div class="ui container"></div>
+<div class="ui two column fluid grid container">
+	<div class="row">
+		<div class="column">
+			 <button class="ui massive icon button" id="park-nav-item" href="/park">
+	        <i class="location arrow icon"></i>
+	     </button>
+		</div>
+		<div class="column">
+			 <button class="ui massive icon button" id="parked-nav-item" href="/parked">
+	        <i class="car icon"></i>
+	     </button>
+		</div>
+	</div>
+	<div class="column">
+		 <button class="ui massive icon button" id="contacts-nav-item" href="/contacts">
+        <i class="users icon"></i>
+     </button>
+	</div>
+	<div class="two wide column">
+		 <button class="ui massive icon button" id="options-nav-item" href="/options">
+        <i class="options icon"></i>
+     </button>
+	</div>	
+</div>

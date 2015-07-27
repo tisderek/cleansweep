@@ -1,5 +1,37 @@
 require 'rgeo/shapefile'
 
+RGeo::Shapefile::Reader.open('db/routes/routes.shp') do |file|
+  puts "File contains #{file.num_records} records."
+  file.each do |record|
+    args = Hash[record.attributes.map{|(k,v)| [k.downcase.to_sym,v]}]
+    args.delete(:blockside)
+    args.delete(:blocksweep)
+    args.delete(:cnn)
+    args.delete(:corridor)
+    args.delete(:district)
+    args.delete(:nhood)
+    args.delete(:zip_code)
+    if args[:weekday] == "Sun"
+      args[:weekday] = "Sunday"
+    elsif args[:weekday] == "Mon"
+      args[:weekday] = "Monday"
+    elsif args[:weekday] == "Tue"
+      args[:weekday] = "Tuesday"
+    elsif args[:weekday] == "Wed"
+      args[:weekday] = "Wednesday"
+    elsif args[:weekday] == "Thu"
+      args[:weekday] = "Thursday"
+    elsif args[:weekday] == "Fri"
+      args[:weekday] = "Friday"
+    elsif args[:weekday] == "Sat"
+      args[:weekday] = "Saturday"
+    end
+    Route.create(args)
+    break if record.index == 30
+  end
+  file.rewind
+  record = file.next
+end
 User.create(
     name: "Derek",
     email: "the@admin.com",
@@ -180,38 +212,6 @@ User.create(
     phone_number: 6196722649,
     password: 123123
 )
-
-RGeo::Shapefile::Reader.open('db/routes/routes.shp') do |file|
-  puts "File contains #{file.num_records} records."
-  file.each do |record|
-    args = Hash[record.attributes.map{|(k,v)| [k.downcase.to_sym,v]}]
-    args.delete(:blockside)
-    args.delete(:blocksweep)
-    args.delete(:cnn)
-    args.delete(:corridor)
-    args.delete(:district)
-    args.delete(:nhood)
-    args.delete(:zip_code)
-    if args[:weekday] == "Sun"
-      args[:weekday] = "Sunday"
-    elsif args[:weekday] == "Mon"
-      args[:weekday] = "Monday"
-    elsif args[:weekday] == "Tue"
-      args[:weekday] = "Tuesday"
-    elsif args[:weekday] == "Wed"
-      args[:weekday] = "Wednesday"
-    elsif args[:weekday] == "Thu"
-      args[:weekday] = "Thursday"
-    elsif args[:weekday] == "Fri"
-      args[:weekday] = "Friday"
-    elsif args[:weekday] == "Sat"
-      args[:weekday] = "Saturday"
-    end
-    Route.create(args)
-  end
-  file.rewind
-  record = file.next
-end
 
 ParkingEvent.create(
   lat: 37.714488,
