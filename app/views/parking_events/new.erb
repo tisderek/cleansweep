@@ -8,16 +8,18 @@
   </head>
   <body>
   <style>
-  .massive.ui.button {
+  #geolocate {
     display:block;
     position:absolute;
     z-index:100;
     text-align:center;
+    top:50%;
+    left:38%;
     }
   </style>
 
   <div id='map'></div>
-  <button href='#' id='geolocate' class="massive ui blue button" style="  top:50%;left:38%;">Find me</button>
+  <button href='#' id='geolocate' class="massive ui blue button">Find me</button>
 
   <script>
     L.mapbox.accessToken = 'pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA';
