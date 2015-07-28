@@ -1,4 +1,5 @@
 get '/' do
+  binding.pry
   if logged_in?
     erb :dashboard
   else
