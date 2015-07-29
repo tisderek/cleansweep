@@ -66,24 +66,4 @@ class ParkingEvent < ActiveRecord::Base
       )
   end
 
-  private
-
-  def twilio_SID
-    'AC353193f53993d0d25fde1832142cb278'
-  end
-
-  def twilio_token
-    'a1fdbf3a9b4f14136ce094e57aafa90e'
-  end
-
-
-  # def route_start
-  #   (self.get_route[0].fromhour).strftime('%l:%M%P')
-  # end
-
-  # def route_end
-  #   (self.get_route[0].tohour).strftime('%l:%M%P')
-  # end
-
-
 end

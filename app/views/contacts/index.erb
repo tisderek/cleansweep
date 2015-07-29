@@ -1,0 +1,48 @@
+    <h2>Contacts</h2>
+
+
+<div id="user-contacts" class="ui container">
+  <div class="ui accordion">
+
+    <% current_user.contacts.each do |c| %>
+
+      <div class="title">
+        <i class="dropdown icon"></i>
+        <%= c.name %>
+      </div>
+      <div class="content">
+        <div class="ui two column stackable grid container">
+          <div class="column">
+            <i class="phone icon"></i>  <%= phone_display(c.phone_number) %>
+          </div>
+          <div class="column">
+            <div class="ui toggle checkbox">
+              <input type="checkbox" name="public">
+              <label>Text parked location &amp; street sweeping info </label>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui toggle checkbox">
+              <input type="checkbox" name="public">
+              <label>Text street sweeping reminders </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+  <button class="ui labeled basic orange icon button"  id="add-contact-btn">
+  <i class="add user icon"></i>
+  Add Contact
+  </button>
+</div>
+<br><br>
+  <script src="/semantic/semantic.js"></script>
+
+  <script>
+  $('.ui.accordion')
+  .accordion()
+;
+  </script>

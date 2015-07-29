@@ -1,7 +1,6 @@
 require 'rgeo/shapefile'
 
 RGeo::Shapefile::Reader.open('db/routes/routes.shp') do |file|
-  puts "File contains #{file.num_records} records."
   file.each do |record|
     args = Hash[record.attributes.map{|(k,v)| [k.downcase.to_sym,v]}]
     args.delete(:blockside)
