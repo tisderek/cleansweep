@@ -1,8 +1,6 @@
 get '/' do
   if logged_in?
     erb :dashboard
-  elsif !User.find(sessions[:token])
-    logout
   else
     erb :splash, layout: false
   end
