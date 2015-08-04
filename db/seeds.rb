@@ -26,6 +26,7 @@ RGeo::Shapefile::Reader.open('db/routes/routes.shp') do |file|
       args[:weekday] = "Saturday"
     end
     Route.create(args)
+    break if record.index == 1000
   end
   file.rewind
   record = file.next
@@ -204,7 +205,7 @@ User.create(
     email: "the@admin.com",
     phone_number: 2488088695,
     password: 123123
-  ) 
+  )
 User.create(
     name: "Marshall",
     email: "the@admin.com",

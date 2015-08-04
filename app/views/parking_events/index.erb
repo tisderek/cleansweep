@@ -1,5 +1,5 @@
-<% current_user.parking_events.each do |p| %>
+<% user.parking_events.each do |p| %>
   <div class="ui vertical segment">
-    <%= erb :"parking_events/show", locals: { parked: p, header: "Created on #{p.created_at}" } %>
+    <%= erb :"parking_events/show", locals: { parked: p, header: "#{format_datetime(p.created_at)}" } %>
   </div>
 <% end %>

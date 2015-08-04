@@ -1,10 +1,10 @@
-    <h2>Contacts</h2>
+<h2>Contacts</h2>
 
 
 <div id="user-contacts" class="ui container">
   <div class="ui accordion">
 
-    <% current_user.contacts.each do |c| %>
+    <% user.contacts.each do |c| %>
 
       <div class="title">
         <i class="dropdown icon"></i>
@@ -13,7 +13,7 @@
       <div class="content">
         <div class="ui two column stackable grid container">
           <div class="column">
-            <i class="phone icon"></i>  <%= phone_display(c.phone_number) %>
+            <i class="phone icon"></i>  <%= display_phone(c.phone_number) %>
           </div>
           <div class="column">
             <div class="ui toggle checkbox">
