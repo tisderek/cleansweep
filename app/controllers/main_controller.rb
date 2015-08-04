@@ -1,3 +1,5 @@
+#------ ROOT  -------
+
 get '/' do
   if logged_in?
     erb :dashboard
@@ -6,24 +8,20 @@ get '/' do
   end
 end
 
-#-------  DASHBOARD  --------
+#------ LOGIN --------
 
-get '/dashboard' do
-
-  erb :dashboard
-end
-
-#----------- USERS -----------
-
-get '/users/new' do
-
-  erb :"sessions/_signup"
-end
-
-post '/users' do
-  signup
+post '/login' do
   login
 
-  redirect '/home'
+  redirect '/'
 end
+
+#------ LOGOUT -------
+
+get '/logout' do
+  logout
+
+  redirect '/'
+end
+
 

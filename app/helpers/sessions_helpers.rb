@@ -11,10 +11,12 @@ helpers do
   end
 
   def login
-    @user = User.find_by(phone_number: masked_phone_to_num(params[:phone_number]))
-    if @user.password == params[:password]
-      @user.generate_token
-      session[:token] = @user.token
+    user_to_login = User.find_by(
+      phone_number: masked_phone_to_num(params[:phone_number])
+    )
+    if user_to_login.password == params[:password]
+      user_to_login.generate_token
+      session[:token] = user_to_login.token
     end
   end
 

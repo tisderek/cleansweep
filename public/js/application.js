@@ -3,7 +3,7 @@ $(document).ready(function() {
   // hide park button
   $('#park').hide();
 
-  // show park button after findme button is clicked 
+  // show park button after findme button is clicked
   $("#geolocate").on('click', function(){
     $('#park').fadeIn('medium',function(){})
   })
@@ -35,12 +35,12 @@ $(document).ready(function() {
      $("#login_phone_number").mask("(999) 999-9999");
   });
 
-  // append add contact form 
+  // append add contact form
   $('#add-contact-btn').on('click', function(){
     event.preventDefault();
 
     $.ajax({
-      url: '/contacts/new',      
+      url: '/contacts/new',
     })
 
     .done(function(rData){
@@ -52,7 +52,7 @@ $(document).ready(function() {
 
     .fail(function(rData){
       console.log("fail")
-    console.log(rData)  
+    console.log(rData)
     })
   })
 
