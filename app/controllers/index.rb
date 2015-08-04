@@ -22,6 +22,12 @@ end
 post '/sessions' do
   login
 
+  if logged_in?
+    redirect "/dashboard"
+  else
+    redirect "/"
+  end
+
 end
 
 #----------- USERS -----------
@@ -36,7 +42,7 @@ post '/users' do
 
   signup
   login
-  #RF to current_user
+  #RF to user
   @user = User.find_by(email: params[:user][:email])
   redirect '/dashboard'
 end
