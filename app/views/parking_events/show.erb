@@ -102,7 +102,7 @@
       <div class="extra content">
         <a>
           <i class="wait icon"></i>
-          <%= parked.created_at.strftime("%A, %b %d at %l:%M%P") %>
+          <%= format_datetime(parked.created_at) %>
         </a>
       </div>
     </div>
