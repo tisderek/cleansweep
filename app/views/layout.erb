@@ -22,39 +22,35 @@
       </a>
     </div>
   </div>
-  <div class="ui three item borderless blue secondary pointing menu bottom attached">
-
-    <a class="item" id="park-nav-item" href="/park">
+  <div id="sec-menu" class="ui three item secondary pointing blue menu bottom attached">
+    <a class="item" id="park-sec-item" href="/park">
       Park
     </a>
-    <a class="item" id="parked-nav-item" href="/parked">
+    <a class="item" id="dash-sec-item" href="/">
       Dashboard
     </a>
-    <a class="item" id="contacts-nav-item" href="/contacts">
+    <a class="item" id="contacts-sec-item" href="/contacts">
       Contacts
     </a>
-
-
   </div>
-
   <div class="ui bottom attached segment pushable">
 
     <div class="ui inverted labeled icon left inline vertical sidebar menu">
-      <a class="item" id="park-nav-item" href="/park">
-        <i class="location arrow icon"></i>
-        Park Now
+      <a class="item" id="options-nav-item" href="#">
+        <i class="send outline icon"></i>
+        Tell friends
       </a>
-      <a class="item" id="parked-nav-item" href="/parked">
-        <i class="car icon"></i>
-        Parked
+      <a class="item" id="parked-nav-item" href="#">
+        <i class="alarm outline icon"></i>
+        Notifications
       </a>
-      <a class="item" id="contacts-nav-item" href="/contacts">
-        <i class="book icon"  ></i>
-        Contacts
+      <a class="item" id="park-nav-item" href="#">
+        <i class="history icon"></i>
+        History
       </a>
-      <a class="item" id="options-nav-item" href="/options">
-        <i class="options icon"></i>
-        Options
+      <a class="item" id="options-nav-item" href="/settings">
+        <i class="settings icon"></i>
+        Settings
       </a>
       <a class="item" id="logout-nav-item" href="/logout">
         <i class="external icon"></i>
@@ -64,11 +60,10 @@
 
 
     <div class="pusher">
-      <div class="ui basic segment">
+      <div id="main-container" class="ui main container ">
           <%= yield %>
       </div>
     </div>
-
   </div>
 
 
