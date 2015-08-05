@@ -3,55 +3,68 @@
 <head>
   <%= erb :_head_content %>
 </head>
-<style>
-.ui.menu .item{
-  /* Place the flex items vertically */
-  flex-direction: column;
-}
-.ui.menu .item>i.icon{
-  /* Bigger icons */
-  font-size: 1.5em;
-  /* Better spacing */
-  margin: 0px 0px 5px;
-}
-
-</style>
 <body>
 
-    <div class="ui one top attached buttons">
-    <div class="ui orange button">Clean Sweep</div>
+  <div class="ui large borderless inverted blue menu top attached ">
+    <div class="left menu">
+      <a class="center aligned item">
+        <i class="sidebar icon"></i>
+      </a>
+    </div>
+    <div class="center menu">
+      <a class="header item">
+        CLEAN SWEEP
+      </a>
+    </div>
+    <div class="right menu">
+      <a class="item">
+        <i class="share icon"></i>
+      </a>
+    </div>
   </div>
-
-  <div class="ui attached segment">
-    <%= yield %>
-  </div>
-
-
-  <div class="ui five item inverted blue menu bottom attached">
-
-    <a class="item" id="park-nav-item" href="/park">
-      <i class="car icon"></i>
-      Park Now
+  <div id="sec-menu" class="ui three item secondary pointing blue menu bottom attached">
+    <a class="item" id="park-sec-item" href="/park">
+      Park
     </a>
-    <a class="item" id="parked-nav-item" href="/parked">
-      <i class="dashboard icon"></i>
+    <a class="item" id="dash-sec-item" href="/">
       Dashboard
     </a>
-    <a class="item" id="contacts-nav-item" href="/contacts">
-      <i class="book icon"  ></i>
+    <a class="item" id="contacts-sec-item" href="/contacts">
       Contacts
     </a>
-    <a class="item" id="options-nav-item" href="/options">
-      <i class="options icon"></i>
-      Options
-    </a>
-    <a class="item" id="logout-nav-item" href="/logout">
-      <i class="external icon"></i>
-      Logout
-    </a>
-
   </div>
+  <div class="ui bottom attached segment pushable">
 
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <a class="item" id="options-nav-item" href="#">
+        <i class="send outline icon"></i>
+        Tell friends
+      </a>
+      <a class="item" id="parked-nav-item" href="#">
+        <i class="alarm outline icon"></i>
+        Notifications
+      </a>
+      <a class="item" id="park-nav-item" href="#">
+        <i class="history icon"></i>
+        History
+      </a>
+      <a class="item" id="options-nav-item" href="/settings">
+        <i class="settings icon"></i>
+        Settings
+      </a>
+      <a class="item" id="logout-nav-item" href="/logout">
+        <i class="external icon"></i>
+        Logout
+      </a>
+    </div>
+
+
+    <div class="pusher">
+      <div id="main-container" class="ui main container ">
+          <%= yield %>
+      </div>
+    </div>
+  </div>
 
 
   <script src="/semantic/semantic.js"></script>

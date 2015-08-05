@@ -27,9 +27,9 @@ end
 #----------- INDEX -----------
 
 get '/contacts' do
-  @contacts = Contact.where(user_id: user_id)
+  user_contacts = user.contacts
 
-  erb :"/contacts/index", locals: { contacts: @contacts }
+  erb :"/contacts/index", locals: { contacts: user_contacts}
 end
 
 #----------- EDIT -----------
@@ -39,8 +39,6 @@ get '/contacts/:id/edit' do
 
   erb :"/contacts/_edit"
 end
-
-#----------- EDIT -----------
 
 put '/contacts/:id' do
   @contact = Contact.find(params[:id])
@@ -52,7 +50,7 @@ put '/contacts/:id' do
   redirect "/users/:user_id/contacts/#{@contact.id}"
 end
 
-#----------- SESSIONS -----------
+#----------- DELETE -----------
 
 
 delete '/contacts/:id' do
