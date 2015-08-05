@@ -56,10 +56,23 @@ $(document).ready(function() {
     })
   })
 
+  // if current page is part of secondary menu,
+  $('#sec-menu a').each(function(element) {
+    if(window.location.pathname == $(this).attr('href')){
+      $(this).addClass('active')
+    }
+  });
+
+  // park page remove ui container
+  if(window.location.pathname == '/park'){
+    $('#main-container').removeClass('ui main container')
+    //RF remove margin bottom always?
+    $('#sec-menu')
+      // .css('background-color', '#90CAF9')
+      .css('margin-bottom', 1)
+  }
 
 });
-
-
 
 /*
     jQuery Masked Input Plugin

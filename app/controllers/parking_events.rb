@@ -6,7 +6,7 @@ MAPBOX_PUB_TOKEN=ENV["MAPBOX_PUB_TOKEN"]
 
 get '/park' do
 
-  erb :"/parking_events/new", layout: false
+  erb :"/parking_events/new"
 end
 
 post '/park' do
