@@ -1,15 +1,17 @@
 $(document).ready(function() {
 // VARS
-  var $pageContent = $('#main-container').children().first()[0]
-  active_page = $('#main-container').children().first()[0].id
-      .substr(0, $('#main-container').children().first()[0].id.indexOf('-'))
-
+  // the one w var is not defined, and the one w/o is... why?
+  var $pageContent = $('#page-content').children().first()[0]
+  active_page = $('#page-content').children().first()[0].id
+      .substr(0, $('#page-content').children().first()[0].id.indexOf('-'))
 
 //PARK
 
     // park page remove ui container
-    if(window.location.pathname == '/park'){
-      $('#main-container').removeClass('ui main container')
+    if(act9ve_page 
+
+     == '/park'){
+      $('#page-content').removeClass('ui main container')
       //RF remove margin bottom always?
       $('#navbar')
         .css('margin-bottom', 1)
@@ -22,7 +24,7 @@ $(document).ready(function() {
   // show park button after findme button is clicked
   $("#geolocate").on('click', function(){
     $('#park').fadeIn('medium',function(){})
-  })
+  });
 
   // fill hidden forms w lat&lng when park btn is clicked
   $('#park').on('click', function(){
@@ -37,14 +39,9 @@ $(document).ready(function() {
 //PARKED
 
   // send sms ajax call
-  $('#send_sms').on('click', function(e){
-    e.preventDefault();
-
-    var route_val = $(this).attr('href');
-
-    $.ajax({
-      url: route_val
-    })
+  $('#send_sms').on('click', function(){
+    event.preventDefault();
+    $.ajax( $(this).attr('href') );
   })
 
 //SESSION
@@ -58,11 +55,12 @@ $(document).ready(function() {
 //CONTACTS
 
 // NAV AJAX
+   
   $('a#navbar-contacts').on('click', function(){
     event.preventDefault();
     $.ajax(this.href)
       .done(function(sData){
-        $('#main-container').children().replaceWith(sData);
+        $('#page-content').children().replaceWith(sData);
 
         console.log(sData);
         console.log('yay');
@@ -92,22 +90,43 @@ $(document).ready(function() {
     console.log(rData)
     })
   })
-//NAV
-  // active page effect on navbar
 
+//NAV
+
+  // AJAX calls for navbar items
+  ajax_fetch_page = function(targetPage) {
+    $('a["id"|='+targetPage+']').on('click', function(){
+      event.preventDefault();
+      $.ajax(this.href)
+        .done(function(sData){
+          $('#page-content').children().replaceWith(sData);
+
+          console.log(sData);
+          console.log('yay');
+        })
+        .fail(function(sData){
+          console.log(sData);
+          console.log('nay');
+        })
+    })
+  };
+
+  // $('div#page-content').css('margin-top', 0)
+  // highlight active page in navbar
   //FIX active page doesn't change when the content changes via ajax call
   $('#navbar a').each(function(element) {
     if (this.id.includes( active_page )) {
       $(this).addClass('active');
     } 
-
   // $('#navbar a').each(function(element) {
-
-  //   active_page = $('#main-container').children().first()[0].id
-  //     .substr(0, $('#main-container').children().first()[0].id.indexOf('-'))
-  
+  //   active_page = $('#page-content').children().first()[0].id
+  //     .substr(0, $('#page-content').children().first()[0].id.indexOf('-'))
   });
-
+  $('#navbar a').each(function(element) {
+    if (this.id.includes( active_page )) {
+      $(this).addClass('active');
+    } 
+  });
 
 });
 /*

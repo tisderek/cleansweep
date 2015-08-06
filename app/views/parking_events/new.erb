@@ -1,6 +1,22 @@
+<div id="parking-form"  >
+  <form action = "/park" method="post">
+
+        <input type="hidden" name="lng" id="lng" value="" />
+        <input type="hidden" name="lat" id="lat" value="" />
+
+    <button type="submit" id="park" class="massive ui orange button"  >
+      Yep, I'm here.
+    </button>
+
+  </form>
+</div>
 
   <div id='map'></div>
   <button href='#' id='geolocate' class="massive ui blue button">Find me</button>
+<!-- mapbox -->
+  <link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css'/>
+
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 
   <script>
     L.mapbox.accessToken = 'pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA';
@@ -64,18 +80,4 @@
     width:100%;
      }
  </style>
-
-<div id="parking-form"  >
-  <form action = "/park" method="post">
-
-        <input type="hidden" name="lng" id="lng" value="" />
-        <input type="hidden" name="lat" id="lat" value="" />
-
-    <button type="submit" id="park" class="massive ui orange button"  >
-      Yep, I'm here.
-    </button>
-
-  </form>
-</div>
-
 

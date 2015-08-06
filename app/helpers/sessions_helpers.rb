@@ -25,7 +25,7 @@ helpers do
   end
 
   def logged_in?
-    !!session[:token]
+    !!session[:token] && user
   end
 
   def user
@@ -33,6 +33,7 @@ helpers do
   end
 
   def username
+    binding.pry
     user.name
   end
 
