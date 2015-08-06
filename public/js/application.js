@@ -1,4 +1,20 @@
 $(document).ready(function() {
+// VARS
+  var $pageContent = $('#main-container').children().first()[0]
+  active_page = $('#main-container').children().first()[0].id
+      .substr(0, $('#main-container').children().first()[0].id.indexOf('-'))
+
+
+//PARK
+
+    // park page remove ui container
+    if(window.location.pathname == '/park'){
+      $('#main-container').removeClass('ui main container')
+      //RF remove margin bottom always?
+      $('#navbar')
+        .css('margin-bottom', 1)
+    }
+
 
   // hide park button
   $('#park').hide();
@@ -18,6 +34,8 @@ $(document).ready(function() {
     $('#lng').attr('value', lng);
   })
 
+//PARKED
+
   // send sms ajax call
   $('#send_sms').on('click', function(e){
     e.preventDefault();
@@ -29,16 +47,35 @@ $(document).ready(function() {
     })
   })
 
+//SESSION
+
   // phone number emdashes in login/signup format
-  jQuery(function($){
+  $(function($){
      $("#signup_phone_number").mask("(999) 999-9999");
      $("#login_phone_number").mask("(999) 999-9999");
   });
 
-  // append add contact form
+//CONTACTS
+
+// NAV AJAX
+  $('a#navbar-contacts').on('click', function(){
+    event.preventDefault();
+    $.ajax(this.href)
+      .done(function(sData){
+        $('#main-container').children().replaceWith(sData);
+
+        console.log(sData);
+        console.log('yay');
+      })
+      .fail(function(sData){
+        console.log(sData);
+        console.log('nay');
+      })
+  })
+  
+  // add contact form append
   $('#add-contact-btn').on('click', function(){
     event.preventDefault();
-
     $.ajax({
       url: '/contacts/new',
     })
@@ -55,25 +92,24 @@ $(document).ready(function() {
     console.log(rData)
     })
   })
+//NAV
+  // active page effect on navbar
 
-  // if current page is part of secondary menu,
-  $('#sec-menu a').each(function(element) {
-    if(window.location.pathname == $(this).attr('href')){
-      $(this).addClass('active')
-    }
+  //FIX active page doesn't change when the content changes via ajax call
+  $('#navbar a').each(function(element) {
+    if (this.id.includes( active_page )) {
+      $(this).addClass('active');
+    } 
+
+  // $('#navbar a').each(function(element) {
+
+  //   active_page = $('#main-container').children().first()[0].id
+  //     .substr(0, $('#main-container').children().first()[0].id.indexOf('-'))
+  
   });
 
-  // park page remove ui container
-  if(window.location.pathname == '/park'){
-    $('#main-container').removeClass('ui main container')
-    //RF remove margin bottom always?
-    $('#sec-menu')
-      // .css('background-color', '#90CAF9')
-      .css('margin-bottom', 1)
-  }
 
 });
-
 /*
     jQuery Masked Input Plugin
     Copyright (c) 2007 - 2014 Josh Bush (digitalbush.com)

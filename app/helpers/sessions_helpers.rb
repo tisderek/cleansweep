@@ -36,4 +36,7 @@ helpers do
     user.name
   end
 
+  def user_authorized?
+    params[:id] == user.id
+  end
 end
