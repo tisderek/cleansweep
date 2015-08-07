@@ -1,21 +1,28 @@
 <div id="park-body">
   <div id='map'></div>
-  <div id="parking-form"  >
-    <form action = "/park" method="post">
 
-      <input type="hidden" name="lng" id="lng" value="" />
-      <input type="hidden" name="lat" id="lat" value="" />
+  <div class="ui middle aligned center aligned grid">
+      <div id="parking-form">
+        <form action = "/park" method="post">
 
-      <button type="submit" id="submit-location-park-btn" class="massive ui orange button"  >
-        Yep, I'm here.
-      </button>
+          <input type="hidden" name="lng" id="lng" value="" />
+          <input type="hidden" name="lat" id="lat" value="" />
 
-    </form>
+          <button type="submit" id="submit-location-park-btn" class="massive ui orange button"  >
+            Yep, I'm here.
+          </button>
+
+        </form>
+      </div>
+
+
+    <div id="grab-location-park-btns" class="large ui buttons">
+      <button id='geolocate-park-btn' class="ui blue button">Find my location</button>
+      <div class="or"></div>
+      <button id='pindrop-park-btn' class="ui blue button">Let me drop a pin</button>
+    </div>
   </div>
 
-  <button href='#' id='geolocate-park-btn' class="massive ui blue button">
-    Find me
-  </button>
 </div>
 
 <!-- mapbox -->
@@ -25,7 +32,8 @@
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA';
-var geolocate = document.getElementById('geolocate');
+var geolocate = document.getElementById('geolocate-park-btn');
+var park = document.getElementById('submit-location-park-btn')
 var map = L.mapbox.map('map', 'mapbox.emerald', {
   center: [37.7833, -122.4167],
   zoom: 13
@@ -47,8 +55,8 @@ var myLayer = L.mapbox.featureLayer().addTo(map);
     // Once we've got a position, zoom and center the map
     // on it, and add a single marker.
     map.on('locationfound', function(e) {
+      park.style.display = 'block'
       map.fitBounds(e.bounds);
-
       myLayer.setGeoJSON({
         type: 'Feature',
         geometry: {

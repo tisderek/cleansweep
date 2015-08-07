@@ -20,12 +20,12 @@ $(document).ready(function() {
   $('#submit-location-park-btn').hide();
 
   // show park button after findme button is clicked
-  $("#geolocate-park-btn").on('click', function(){
-    $('#submit-location-park-btn').fadeIn('slow',function(){})
-  });
-
+  $("#geolocate-park-btn, #pindrop-park-btn").on('click', function(){
+    $("#grab-location-park-btns").remove()
+    // $('#submit-location-park-btn').delay(600).fadeIn('slow');
+    });
   // fill hidden forms w lat&lng when park btn is clicked
-  $('#park').on('click', function(){
+  $('#submit-location-park-btn').on('click', function(){
 
     var lat = myLayer._geojson.geometry.valueOf().coordinates[1];
     var lng = myLayer._geojson.geometry.valueOf().coordinates[0];
