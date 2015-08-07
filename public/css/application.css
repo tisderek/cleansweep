@@ -10,3 +10,21 @@ body { margin-bottom:0; padding:0; }
     top:50%;
     left:38%;
 }
+
+#footer-img{
+  position:fixed;
+  margin-top:80%;
+  clear:both;
+  bottom:0;
+  z-index: -1;
+}
+
+#splash-col{
+  opacity: .97;
+  max-width: 400px;
+}
+
+#navbar{
+  background-color: #FAFAFA;
+  border:none;
+}

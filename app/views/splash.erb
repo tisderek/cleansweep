@@ -15,26 +15,19 @@
   <!-- mapbox -->
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
 
-
-  <style type="text/css">
-    .splash-column {
-      max-width: 400px;
-    }
-
-  </style>
 </head>
-<body style="margin-bottom: 200px;">
+<body>
   <div class="ui vertical masthead center aligned segment">
 
   <br>
-  <div class="ui text container">
-    <h1 class="ui orange header">
+  <div id='page-content' class="ui text container">
+    <h1 id='splash-header' class="ui orange header">
       I'm passionate about not getting street sweeping tickets
     </h1>
     <h2>Clean Sweep is here to help SF folks keep those $66</h2>
     <br>
       <div class="ui middle aligned center aligned grid">
-        <div class="column splash-column">
+        <div id="splash-col" class="column splash-column">
           <div class="ui top attached tabular menu">
             <a class="item active" data-tab="first">Login</a>
             <a class="item" data-tab="second">Signup</a>
@@ -85,7 +78,7 @@
   <br>
   <br>
   <div>
-    <img class="ui fluid image" style="position:fixed; margin-top:80%; clear:both; bottom:0; z-index: 1;" src="http://i.imgur.com/jbt6SuK.png">
+    <img class="ui fluid image" id="footer-img" src="http://i.imgur.com/jbt6SuK.png" >
   </div>
 
   <!-- jquery -->
@@ -93,7 +86,11 @@
 
   <!-- javascript -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
+   <script src="/js/application.js"></script>
+
+     <script src="/js/js_plugins.js"></script>
+
+
   <script src="/semantic/semantic.js"></script>
 <script>
   $('.menu .item').tab();
