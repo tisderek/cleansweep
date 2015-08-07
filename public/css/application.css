@@ -2,7 +2,7 @@ body { margin-bottom:0; padding:0; }
 
 #map { position:absolute; top:42px; bottom:0px; width:100%; }
 
-#geolocate {
+#geolocate-park-btn {
     display:block;
     position:absolute;
     z-index:100;
@@ -28,3 +28,11 @@ body { margin-bottom:0; padding:0; }
   background-color: #FAFAFA;
   border:none;
 }
+
+#parking-form {
+    position:absolute;
+    bottom:80px;
+    top:80%;
+    left:30%;
+    width:100%;
+     }

@@ -17,11 +17,11 @@ $(document).ready(function() {
 
 
   // hide park button
-  $('#park').hide();
+  $('#submit-location-park-btn').hide();
 
   // show park button after findme button is clicked
-  $("#geolocate").on('click', function(){
-    $('#park').fadeIn('medium',function(){})
+  $("#geolocate-park-btn").on('click', function(){
+    $('#submit-location-park-btn').fadeIn('slow',function(){})
   });
 
   // fill hidden forms w lat&lng when park btn is clicked
@@ -92,26 +92,25 @@ $(document).ready(function() {
 //NAV
 
   // AJAX calls for navbar items
-  ajax_fetch_page = function(targetPage) {
-    $('a["id"|='+targetPage+']').on('click', function(){
-      event.preventDefault();
-      $.ajax(this.href)
-        .done(function(sData){
-          $('#page-content').children().replaceWith(sData);
+  // ajax_fetch_page = function(targetPage) {
+  //   $('a["id"|='+targetPage+']').on('click', function(){
+  //     event.preventDefault();
+  //     $.ajax(this.href)
+  //       .done(function(sData){
+  //         $('#page-content').children().replaceWith(sData);
 
-          console.log(sData);
-          console.log('yay');
-        })
-        .fail(function(sData){
-          console.log(sData);
-          console.log('nay');
-        })
-    })
-  };
+  //         console.log(sData);
+  //         console.log('yay');
+  //       })
+  //       .fail(function(sData){
+  //         console.log(sData);
+  //         console.log('nay');
+  //       })
+  //   })
+  // };
 
-  // $('div#page-content').css('margin-top', 0)
   // highlight active page in navbar
-  //FIX active page doesn't change when the content changes via ajax call
+  //FIX problem: active page doesn't change when the content changes via ajax call
   $('#navbar a').each(function(element) {
     if (this.id.includes( active_page )) {
       $(this).addClass('active');
@@ -125,6 +124,9 @@ $(document).ready(function() {
       $(this).addClass('active');
     }
   });
+
+  // page content snug fit
+  $('#navbar').next().css('padding-top','1.1em').css('margin-top', '-0.1em')
 
 });
 /*
