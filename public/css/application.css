@@ -1,10 +1,9 @@
 body {
-  margin-bottom:0; padding:0;
+  margin-bottom:0;
+  padding:0;
+  height: 97%;
 }
-#map-wrap{
-  position: relative;
 
-}
 #map {
   position:absolute;
   top:42px;
@@ -36,6 +35,6 @@ body {
 
 #grab-location-park-btns, #parking-form {
   position: relative;
-  margin-top:60%;
+  margin-top:65%;
   z-index:90;
 }

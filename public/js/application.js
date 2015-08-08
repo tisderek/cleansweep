@@ -2,19 +2,17 @@ $(document).ready(function() {
 // VARS
   // the one w var is not defined, and the one w/o is... why?
   var $pageContent = $('#page-content').children().first()
-  active_page = $('#page-content').children().first().attr('id')
+  activePage = $('#page-content').children().first().attr('id')
       .substr(0, $('#page-content').children().first().attr('id').indexOf('-'))
 
-//PARK
+// PARK
 
-    // park page remove ui container
-    if(active_page == 'park'){
-      $('#page-content').removeClass('ui main container')
-      //RF remove margin bottom always?
-      // $('#navbar')
-      //   .css('margin-bottom', 1)
-    }
 
+  // anule
+  // $('#map').css('margin-left', "-125")
+  if (activePage == "park"){
+    $('#navbar').next().removeClass('ui container')
+  }
 
   // hide park button
   $('#submit-location-park-btn').hide();
@@ -42,6 +40,7 @@ $(document).ready(function() {
     $.ajax( $(this).attr('href') );
   })
 
+  $('.pusher').css('min-height','none')
 //SESSION
 
   // phone number emdashes in login/signup format
@@ -52,76 +51,51 @@ $(document).ready(function() {
 
 //CONTACTS
 
-// NAV AJAX
-
-  $('a#navbar-contacts').on('click', function(){
-    event.preventDefault();
-    $.ajax(this.href)
-      .done(function(sData){
-        $('#page-content').children().replaceWith(sData);
-
-        console.log(sData);
-        console.log('yay');
-      })
-      .fail(function(sData){
-        console.log(sData);
-        console.log('nay');
-      })
-  })
-
-  // add contact form append
+  // append add contact form
   $('#add-contact-btn').on('click', function(){
     event.preventDefault();
     $.ajax({
       url: '/contacts/new',
-    })
-
-    .done(function(rData){
+    }).done(function(rData){
       console.log(rData);
       $('#user-contacts').append(rData);
-      // $(this).hide()
-      // $(".post-container").last().append(rData);
-    })
-
-    .fail(function(rData){
-      console.log("fail")
-    console.log(rData)
     })
   })
 
 //NAV
 
-  // AJAX calls for navbar items
-  // ajax_fetch_page = function(targetPage) {
-  //   $('a["id"|='+targetPage+']').on('click', function(){
-  //     event.preventDefault();
-  //     $.ajax(this.href)
-  //       .done(function(sData){
-  //         $('#page-content').children().replaceWith(sData);
+  // AJAX requests for navbar items
+  $('#navbar-dashboard, #navbar-contacts').on('click', function(e){
+    if(activePage !== 'park') {
+      e.preventDefault();
+      // change active page
+      activePage = $(this).attr('id').substr(($(this).attr('id').indexOf('-')+1), $(this).attr('id').length);
 
-  //         console.log(sData);
-  //         console.log('yay');
-  //       })
-  //       .fail(function(sData){
-  //         console.log(sData);
-  //         console.log('nay');
-  //       })
-  //   })
-  // };
+      // change navbar active link
+      $('#navbar a').each(function(element) {
+        if (this.id.includes( activePage )) {
+          $(this).addClass('active');
+        } else {
+          $(this).removeClass('active');
+        };
+    });
+  } ;
+
+  // fetch page content
+  $.ajax(this.href)
+    .done(function(sData){
+      $('#page-content').children().replaceWith(sData);
+      console.log(sData);
+      console.log('yay function');
+    })
+  })
 
   // highlight active page in navbar
-  //FIX problem: active page doesn't change when the content changes via ajax call
   $('#navbar a').each(function(element) {
-    if (this.id.includes( active_page )) {
+    if (this.id.includes( activePage )) {
       $(this).addClass('active');
-    }
-  // $('#navbar a').each(function(element) {
-  //   active_page = $('#page-content').children().first()[0].id
-  //     .substr(0, $('#page-content').children().first()[0].id.indexOf('-'))
-  });
-  $('#navbar a').each(function(element) {
-    if (this.id.includes( active_page )) {
-      $(this).addClass('active');
+    } else {
+      $(this).removeClass('active');
     }
   });
 
@@ -129,6 +103,21 @@ $(document).ready(function() {
   $('#navbar').next().css('padding-top','1.1em').css('margin-top', '-0.1em')
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
     jQuery Masked Input Plugin
     Copyright (c) 2007 - 2015 Josh Bush (digitalbush.com)

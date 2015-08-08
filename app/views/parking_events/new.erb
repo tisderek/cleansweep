@@ -23,23 +23,21 @@
     </div>
   </div>
 
-</div>
-
 <!-- mapbox -->
-<link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css'/>
+  <link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css'/>
 
-<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 
-<script>
-L.mapbox.accessToken = 'pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA';
-var geolocate = document.getElementById('geolocate-park-btn');
-var park = document.getElementById('submit-location-park-btn')
-var map = L.mapbox.map('map', 'mapbox.emerald', {
-  center: [37.7833, -122.4167],
-  zoom: 13
-});
+  <script>
+  L.mapbox.accessToken = 'pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA';
+  var geolocate = document.getElementById('geolocate-park-btn');
+  var park = document.getElementById('submit-location-park-btn')
+  var map = L.mapbox.map('map', 'mapbox.emerald', {
+    center: [37.7833, -122.4167],
+    zoom: 13
+  });
 
-var myLayer = L.mapbox.featureLayer().addTo(map);
+  var myLayer = L.mapbox.featureLayer().addTo(map);
 
     // This uses the HTML5 geolocation API
     if (!navigator.geolocation) {
@@ -79,4 +77,6 @@ var myLayer = L.mapbox.featureLayer().addTo(map);
     map.on('locationerror', function() {
       geolocate.innerHTML = 'Position could not be found';
     });
-    </script>
+  </script>
+
+</div>
