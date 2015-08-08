@@ -7,41 +7,32 @@ post '/users' do
   redirect '/'
 end
 
-#--- SHOW USER / PVT USER PAGE ---
+#------- SHOW USER -------
 
-get '/users/:id' do
-  # define @var if used in erb or
-  # define var and pass as local
-
-  # erb :user_show
-  # erb :"user/show"
+get '/settings' do
+  
+  erb :"users/show"
 end
 
-#--------- INDEX USER ------------
-
-get '/users' do
-  all_users = User.all
-
-  # erb :user_index, locals: {pool: all_users}
-  # erb :"user/index", locals: {pool: all_users}
-end
 
 #--------- EDIT USER -------------
 
 put '/users/:id' do
-  updated_user = User.find(params[:id])
-
-  updated_user.update_attributes()
-
-  # redirect '/users/#{updated_user.id}'
-  # redirect '/users'
+    user.update_attributes(
+      name: params[:name],
+      phone_number: params[:phone_number],
+      #DR: what do I do when its an edit?
+      password: params[:password]
+      )
+    
+    redirect "/"
 end
 
 #--------- DELETE USER -----------
 
 delete '/users/:id' do
-  User.find(params[:id]).destroy
+  user.destroy
 
-  # redirect '/users'
+  redirect "/"
 end
 

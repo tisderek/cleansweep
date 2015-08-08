@@ -1,0 +1,40 @@
+body {
+  margin-bottom:0;
+  padding:0;
+  height: 97%;
+}
+
+#map {
+  position:absolute;
+  top:42px;
+  bottom:-45px;
+  width:100%;
+}
+
+#footer-img{
+  position:fixed;
+  margin-top:80%;
+  clear:both;
+  bottom:0;
+  z-index: -1;
+}
+
+#splash-col{
+  opacity: .97;
+  max-width: 400px;
+}
+
+#park-col{
+  max-width: 700px;
+}
+
+#navbar{
+  background-color: #FAFAFA;
+  border:none;
+}
+
+#grab-location-park-btns, #parking-form {
+  position: relative;
+  margin-top:65%;
+  z-index:90;
+}

@@ -1,3 +1,4 @@
+
 #------ ROOT  -------
 
 get '/' do
@@ -5,6 +6,16 @@ get '/' do
     erb :dashboard
   else
     erb :splash, layout: false
+  end
+end
+
+#------ DASHBOARD ----
+
+get '/dashboard' do
+  if request.xhr?
+    erb :dashboard, layout: false
+  else
+    redirect '/'
   end
 end
 

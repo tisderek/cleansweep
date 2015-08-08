@@ -1,0 +1,108 @@
+Controller testing
+
+Why even do tests?
+
+*upfront:
+	- gets you to actually do tests
+	- gives you a place to start
+	- to serve documentation later
+
+*regression testing: to prevent you don't fuck up
+
+*refactoring is not refactoring if you don't have tests... 
+	- you're just moving stuff around
+	- need tests to make sure things continue to work as they should 
+
+
+TESTING & MVC/SINATRA
+
+* spec helper:
+	similar to rake, but for your test suite
+	instead of a command line interface, it lets your test run in a specific environment
+
+
+Testing in Sinatra
+	- run rspec
+	- it looks for files that finish with _spec.rb
+	- "index_controller_spec.rb" includes require_relative 'spec_helper'
+
+index_controller_spec.rb
+
+require_relative 'spec_helper'
+
+## FORMAT:
+	# higher level thing you're testing: index controller
+	describe "index controller" do
+		# the method or behavior that's lower level and is being tested
+		describe "GET /articles" do
+			it "responds with a successful status" do
+				# give
+				#		this world that we have
+				# when
+				# 	I do this thing
+				# then
+				#		this should happen  
+			end
+		end
+	end
+
+## 	CONTEXT or DESCRIBE?
+
+## BODY
+
+	# higher level thing you're testing: index controller
+	describe "index controller" do
+		# the method or behavior that's lower level and is being tested
+		describe "GET /articles" do
+			it "responds with a successful status" do
+				# give
+				#		this world that we have
+				# when
+				get '/articles'
+				# 	I do this thing
+				# then
+				#		this should happen  
+				# should reveive 200 as the status
+				expect(last_response.status).to eq(200)
+				# this last_response is made/sent by rack - which is MIDDLEWARE - the interface between the webserver(thin) and the framework(sinatra). the server sends rack something for it to manipulate. its a language-specific thing. 
+			end
+		end
+	end
+	STEPS
+
+		it "responds with the title of an artile" do
+			(0) # set up given then when
+			#given
+			(4) article = Article.create(title: "Cats are neat") # create var thats = to new instance, which we'll check on the expect
+			(5) # run rake db:test:prepare, to copy the development db to a test environment
+			(6) # made a view and controller so that the page that is rendered in /articles does include an Article title
+			#when
+			(1) get '/articles'
+			#then
+			(2) expect(last_response.body).to include (Article.first.title)
+			(3) # make Article model and migration
+	 - 
+
+
+## Setting up without RSpect sugar
+ (0) it "creates a new article" do 
+	 (1) # write given when then
+	 #given
+	 (3) count_before = Article.count
+	 #when
+	 (2) post '/articles', {title: "The new post"}
+	 #then
+	 (4) count_after = Article.count
+	 (5) expect(count_after).to be(count_before + 1)
+	end
+
+## Setting up WITH RSpect sugar
+ (0) it "creates a new article" do 
+	 (1) # write given when then
+	 #given
+	 expect {
+		 #when
+		 (2) post '/articles', {title: "The new post"}
+	 #then.
+	 }.to change {Artcile.count}.by(1)
+	end

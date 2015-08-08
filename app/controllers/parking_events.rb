@@ -13,7 +13,7 @@ post '/park' do
   parked = ParkingEvent.create(
     lat: params[:lat],
     lng: params[:lng],
-    user_id: user_id
+    user_id: user.id
     )
 
   redirect "/parked/#{parked.id}"

@@ -16,6 +16,14 @@ post '/contacts' do
   redirect '/contacts'
 end
 
+#----------- INDEX -----------
+
+get '/contacts' do
+  user_contacts = user.contacts
+
+  erb :"/contacts/index", layout: false, locals: { contacts: user_contacts}
+end
+
 #----------- SHOW -----------
 
 get '/contacts/:id' do
@@ -24,13 +32,6 @@ get '/contacts/:id' do
   erb :"/contacts/_show", locals: { contact: @contact }
 end
 
-#----------- INDEX -----------
-
-get '/contacts' do
-  user_contacts = user.contacts
-
-  erb :"/contacts/index", locals: { contacts: user_contacts}
-end
 
 #----------- EDIT -----------
 
