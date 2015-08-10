@@ -71,6 +71,9 @@
               </div>
               <input type="submit" value="Join" class="ui fluid large green button">
             </form>
+            <% if @error %>
+              <div class="ui red message"> <%= @error[:login_error] %> </div> 
+            <% end %>
         </div>
       </div>
     </div>

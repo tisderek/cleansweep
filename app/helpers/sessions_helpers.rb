@@ -6,6 +6,12 @@ helpers do
     @user.save!
   end
 
+  def error_message
+    {
+      signup_error: "Uh-oh. It seems like you either already have an account, or your password didn't fit the requirement"
+    }
+  end
+
   def just_nums(phone_number)
     phone_number.gsub(/[^\d]/, "")
   end
@@ -39,4 +45,5 @@ helpers do
   def user_authorized?
     params[:id] == user.id
   end
+
 end
