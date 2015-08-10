@@ -1,6 +1,6 @@
 $(document).ready(function() {
 // VARS
-  // the one w var is not defined, and the one w/o is... why?
+  //QUESTION the one w var is not defined, and the one w/o is... why?
   var $pageContent = $('#page-content').children().first()
   activePage = $('#page-content').children().first().attr('id')
       .substr(0, $('#page-content').children().first().attr('id').indexOf('-'))
@@ -8,7 +8,7 @@ $(document).ready(function() {
 // PARK
 
 
-  // anule
+  // fix positioning
   // $('#map').css('margin-left', "-125")
   if (activePage == "park"){
     $('#navbar').next().removeClass('ui container')
@@ -65,30 +65,30 @@ $(document).ready(function() {
 //NAV
 
   // AJAX requests for navbar items
-  $('#navbar-dashboard, #navbar-contacts').on('click', function(e){
-    if(activePage !== 'park') {
-      e.preventDefault();
-      // change active page
-      activePage = $(this).attr('id').substr(($(this).attr('id').indexOf('-')+1), $(this).attr('id').length);
+  // $('#navbar-dashboard, #navbar-contacts').on('click', function(e){
+  //   if(activePage !== 'park') {
+  //     e.preventDefault();
+  //     // change active page
+  //     activePage = $(this).attr('id').substr(($(this).attr('id').indexOf('-')+1), $(this).attr('id').length);
 
-      // change navbar active link
-      $('#navbar a').each(function(element) {
-        if (this.id.includes( activePage )) {
-          $(this).addClass('active');
-        } else {
-          $(this).removeClass('active');
-        };
-    });
-  } ;
+  //     // change navbar active link
+  //     $('#navbar a').each(function(element) {
+  //       if (this.id.includes( activePage )) {
+  //         $(this).addClass('active');
+  //       } else {
+  //         $(this).removeClass('active');
+  //       };
+  //   });
+  // } ;
 
   // fetch page content
-  $.ajax(this.href)
-    .done(function(sData){
-      $('#page-content').children().replaceWith(sData);
-      console.log(sData);
-      console.log('yay function');
-    })
-  })
+  // $.ajax(this.href)
+  //   .done(function(sData){
+  //     $('#page-content').children().replaceWith(sData);
+  //     console.log(sData);
+  //     console.log('yay function');
+  //   })
+  // })
 
   // highlight active page in navbar
   $('#navbar a').each(function(element) {
@@ -100,20 +100,9 @@ $(document).ready(function() {
   });
 
   // page content snug fit
-  $('#navbar').next().css('padding-top','1.1em').css('margin-top', '-0.1em')
+  // $('#navbar').next().css('padding-top','1.1em').css('margin-top', '-0.1em')
 
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
