@@ -6,13 +6,13 @@ helpers do
     @user.save!
   end
 
-  def masked_phone_to_num(phone_number)
+  def just_nums(phone_number)
     phone_number.gsub(/[^\d]/, "")
   end
 
   def login
     user_to_login = User.find_by(
-      phone_number: masked_phone_to_num(params[:phone_number])
+      phone_number: just_nums(params[:phone_number])
     )
     if user_to_login.password == params[:password]
       user_to_login.generate_token
@@ -33,7 +33,6 @@ helpers do
   end
 
   def username
-    binding.pry
     user.name
   end
 
