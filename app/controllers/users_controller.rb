@@ -6,8 +6,7 @@ post '/users' do
     login
     redirect '/'
   else
-    @signup_errors = session_error[:signup]
-    p @signup_errors
+    @signup_errors = true
 
     erb :splash, layout:false
   end
@@ -15,9 +14,9 @@ end
 
 #------- SHOW USER -------
 
-get '/settings' do
+get '/options' do
   
-  erb :"users/show"
+  erb :"users/options"
 end
 
 
