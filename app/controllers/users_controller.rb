@@ -2,16 +2,21 @@
 
 post '/users' do
   signup
-  login
+  if  @user.save
+    login
+    redirect '/'
+  else
+    @signup_errors = true
 
-  redirect '/'
+    erb :splash, layout:false
+  end
 end
 
 #------- SHOW USER -------
 
-get '/settings' do
+get '/options' do
   
-  erb :"users/show"
+  erb :"users/options"
 end
 
 

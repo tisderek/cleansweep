@@ -9,22 +9,16 @@ get '/' do
   end
 end
 
-#------ DASHBOARD ----
-
-  # get '/dashboard' do
-  #   if request.xhr?
-  #     erb :dashboard, layout: false
-  #   else
-  #     redirect '/'
-  #   end
-  # end
-
 #------ LOGIN --------
 
 post '/login' do
   login
+  if logged_in?
+    redirect '/'
+  else
+    erb :splash, layout: false
+  end
 
-  redirect '/'
 end
 
 #------ LOGOUT -------

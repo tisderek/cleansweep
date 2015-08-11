@@ -1,18 +1,27 @@
 helpers do
 
   def signup
-    @user = User.new(name: params[:name], phone_number: params[:phone_number].gsub(/[^\d]/, ""))
+    @user = User.new(
+      name: params[:name],
+      phone_number: just_nums(params[:phone_number]),
+      email: params[:email]
+      )
     @user.password = params[:password]
-    @user.save!
   end
 
-  def masked_phone_to_num(phone_number)
+  def session_error
+    {
+     signup: "Either you already have an account or your password is too short!"
+    }
+  end
+
+  def just_nums(phone_number)
     phone_number.gsub(/[^\d]/, "")
   end
 
   def login
     user_to_login = User.find_by(
-      phone_number: masked_phone_to_num(params[:phone_number])
+      phone_number: just_nums(params[:phone_number])
     )
     if user_to_login.password == params[:password]
       user_to_login.generate_token
@@ -33,11 +42,11 @@ helpers do
   end
 
   def username
-    binding.pry
     user.name
   end
 
   def user_authorized?
     params[:id] == user.id
   end
+
 end

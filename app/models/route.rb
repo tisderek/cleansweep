@@ -43,7 +43,6 @@ class Route < ActiveRecord::Base
 
   def date_of_next(day)
     date  = Date.parse(day)
-    # should this be >= or =??
     delta = date >= Date.today ? 0 : 7
     date + delta
   end

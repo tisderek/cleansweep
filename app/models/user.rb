@@ -3,6 +3,16 @@ require 'twilio-ruby'
 class User < ActiveRecord::Base
   include BCrypt
   include SecureRandom
+  EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\Z/i
+
+
+  validates :name, presence:true
+  validates :phone_number, presence:true, uniqueness: true, numericality: true, length: { is: 10 }
+  validates :email, presence:true, uniqueness: true, format: EMAIL_REGEX
+
+  # validates :email, 
+  #           :presence => {:message => "Email can't be blank." },
+  #           :uniqueness => {:message => "User already exists."}
 
   has_many  :parking_events
   has_many  :contacts

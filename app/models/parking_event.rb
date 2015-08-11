@@ -1,10 +1,15 @@
 require 'date'
 class ParkingEvent < ActiveRecord::Base
-  belongs_to   :user
-  include Geokit
   include DateTimeMixin
+  include Geokit
+
+  validates :user_id, presence:true
+  validates :street_name, presence:true
+  validates :street_number, presence:true
+  validates :street_number, presence:true
 
   before_create :reverse_geocode
+  belongs_to    :user
 
   def reverse_geocode
     location = LatLng.new(self.lat, self.lng)

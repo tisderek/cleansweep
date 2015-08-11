@@ -40,13 +40,13 @@ User.create(
   )
 
 Contact.create(
-    name: "Carol",
-    phone_number: 4154168654,
+    contact_name: "Carol",
+    contact_phone_number: 4154168654,
     user_id: 1
   )
 Contact.create(
-    name: "Leo",
-    phone_number: 4154168654,
+    contact_name: "Leo",
+    contact_phone_number: 4154168654,
     user_id: 1
   )
 
@@ -224,5 +224,3 @@ ParkingEvent.create(
   user_id: 1
 )
 
-ParkingEvent.create(lat: 37.784126, lng: -122.395826)
-User.create(name: "admin", password: "admin", phone_number: 0)
