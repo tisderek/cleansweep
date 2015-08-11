@@ -4,9 +4,9 @@ class ParkingEvent < ActiveRecord::Base
   include Geokit
 
   validates :user_id, presence:true
-  validates :streetname, presence:true
-  validates :streetnumber, presence:true
-  validates :streetnumber, presence:true
+  validates :street_name, presence:true
+  validates :street_number, presence:true
+  validates :street_number, presence:true
 
   before_create :reverse_geocode
   belongs_to    :user

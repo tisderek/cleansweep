@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence:true
   validates :email, presence:true, uniqueness: true
-  validates :phone_number, presence:true, uniqueness: true, numericality: true 
+  validates :phone_number, presence:true, uniqueness: true, numericality: true, length: { is: 10 }
 
   has_many  :parking_events
   has_many  :contacts
