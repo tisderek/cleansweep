@@ -1,6 +1,6 @@
 $(document).ready(function() {
 // VARS
-  // the one w var is not defined, and the one w/o is... why?
+  //QUESTION the one w var is not defined, and the one w/o is... why?
   var $pageContent = $('#page-content').children().first()
   activePage = $('#page-content').children().first().attr('id')
       .substr(0, $('#page-content').children().first().attr('id').indexOf('-'))
@@ -8,19 +8,16 @@ $(document).ready(function() {
 // PARK
 
 
-  // anule
+  // fix positioning
   // $('#map').css('margin-left', "-125")
   if (activePage == "park"){
     $('#navbar').next().removeClass('ui container')
   }
 
-  // hide park button
-  $('#submit-location-park-btn').hide();
-
   // show park button after findme button is clicked
   $("#geolocate-park-btn, #pindrop-park-btn").on('click', function(){
     $("#grab-location-park-btns").remove()
-    // $('#submit-location-park-btn').delay(600).fadeIn('slow');
+    // $('#parking-form').delay(6v00).fadeIn('slow');
     });
   // fill hidden forms w lat&lng when park btn is clicked
   $('#submit-location-park-btn').on('click', function(){
@@ -40,7 +37,7 @@ $(document).ready(function() {
     $.ajax( $(this).attr('href') );
   })
 
-  $('.pusher').css('min-height','none')
+  // $('.pusher').css('min-height','none')
 //SESSION
 
   // phone number emdashes in login/signup format
@@ -65,30 +62,30 @@ $(document).ready(function() {
 //NAV
 
   // AJAX requests for navbar items
-  $('#navbar-dashboard, #navbar-contacts').on('click', function(e){
-    if(activePage !== 'park') {
-      e.preventDefault();
-      // change active page
-      activePage = $(this).attr('id').substr(($(this).attr('id').indexOf('-')+1), $(this).attr('id').length);
+  // $('#navbar-dashboard, #navbar-contacts').on('click', function(e){
+  //   if(activePage !== 'park') {
+  //     e.preventDefault();
+  //     // change active page
+  //     activePage = $(this).attr('id').substr(($(this).attr('id').indexOf('-')+1), $(this).attr('id').length);
 
-      // change navbar active link
-      $('#navbar a').each(function(element) {
-        if (this.id.includes( activePage )) {
-          $(this).addClass('active');
-        } else {
-          $(this).removeClass('active');
-        };
-    });
-  } ;
+  //     // change navbar active link
+  //     $('#navbar a').each(function(element) {
+  //       if (this.id.includes( activePage )) {
+  //         $(this).addClass('active');
+  //       } else {
+  //         $(this).removeClass('active');
+  //       };
+  //   });
+  // } ;
 
   // fetch page content
-  $.ajax(this.href)
-    .done(function(sData){
-      $('#page-content').children().replaceWith(sData);
-      console.log(sData);
-      console.log('yay function');
-    })
-  })
+  // $.ajax(this.href)
+  //   .done(function(sData){
+  //     $('#page-content').children().replaceWith(sData);
+  //     console.log(sData);
+  //     console.log('yay function');
+  //   })
+  // })
 
   // highlight active page in navbar
   $('#navbar a').each(function(element) {
@@ -100,20 +97,9 @@ $(document).ready(function() {
   });
 
   // page content snug fit
-  $('#navbar').next().css('padding-top','1.1em').css('margin-top', '-0.1em')
+  // $('#navbar').next().css('padding-top','1.1em').css('margin-top', '-0.1em')
 
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
