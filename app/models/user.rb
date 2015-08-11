@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   include BCrypt
   include SecureRandom
 
+  validates :name, presence:true
+  validates :email, presence:true, uniqueness: true
+  validates :phone_number, presence:true, uniqueness: true, numericality: true 
+
   has_many  :parking_events
   has_many  :contacts
 
