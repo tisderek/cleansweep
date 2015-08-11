@@ -14,13 +14,10 @@ $(document).ready(function() {
     $('#navbar').next().removeClass('ui container')
   }
 
-  // hide park button
-  $('#submit-location-park-btn').hide();
-
   // show park button after findme button is clicked
   $("#geolocate-park-btn, #pindrop-park-btn").on('click', function(){
     $("#grab-location-park-btns").remove()
-    // $('#submit-location-park-btn').delay(600).fadeIn('slow');
+    // $('#parking-form').delay(6v00).fadeIn('slow');
     });
   // fill hidden forms w lat&lng when park btn is clicked
   $('#submit-location-park-btn').on('click', function(){
@@ -40,7 +37,7 @@ $(document).ready(function() {
     $.ajax( $(this).attr('href') );
   })
 
-  $('.pusher').css('min-height','none')
+  // $('.pusher').css('min-height','none')
 //SESSION
 
   // phone number emdashes in login/signup format

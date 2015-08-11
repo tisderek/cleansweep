@@ -7,9 +7,10 @@ body {
 #map {
   position:absolute;
   top:42px;
-  bottom:-45px;
+  bottom:0px;
   width:100%;
 }
+
 
 #footer-img{
   position:fixed;
@@ -34,7 +35,16 @@ body {
 }
 
 #grab-location-park-btns, #parking-form {
-  position: relative;
-  margin-top:65%;
+  position: absolute;
+  left:5% ;
+  bottom: 20%;
   z-index:90;
+}
+
+#page-content{
+  margin-top: 1em;
+}
+
+#parking-form {
+  display: none;
 }
