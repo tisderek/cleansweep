@@ -1,14 +1,15 @@
 #---- CREATE USER / SIGNUP ----
 
 post '/users' do
-  if signup
+  signup
+  if  @user.save
     login
     redirect '/'
   else
-    @error = {
-      signup_error: "Uh-oh. It seems like you either already have an account, or your password didn't fit the requirement"
-    }
-    erb :splash  
+    @signup_errors = session_error[:signup]
+    p @signup_errors
+
+    erb :splash, layout:false
   end
 end
 

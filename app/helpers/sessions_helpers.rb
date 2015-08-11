@@ -1,14 +1,17 @@
 helpers do
 
   def signup
-    @user = User.new(name: params[:name], phone_number: params[:phone_number].gsub(/[^\d]/, ""))
+    @user = User.new(
+      name: params[:name],
+      phone_number: just_nums(params[:phone_number]),
+      email: params[:email]
+      )
     @user.password = params[:password]
-    @user.save!
   end
 
-  def error_message
+  def session_error
     {
-      signup_error: "Uh-oh. It seems like you either already have an account, or your password didn't fit the requirement"
+     signup: "Either you already have an account or your password is too short!"
     }
   end
 
