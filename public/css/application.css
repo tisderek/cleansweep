@@ -1,12 +1,8 @@
-body {
-  margin-bottom:0;
-  padding:0;
-  height: 97%;
-}
+
 
 #map {
   position:absolute;
-  top:42px;
+  top:87px;
   bottom:0px;
   width:100%;
 }
@@ -31,7 +27,7 @@ body {
 
 #navbar{
   background-color: #FAFAFA;
-  border:none;
+  z-index:99;
 }
 
 #grab-location-park-btns, #parking-form {
@@ -41,8 +37,9 @@ body {
   z-index:90;
 }
 
-#page-content{
-  margin-top: 1em;
+#pusher{
+  background-color: #ffffff; 
+  background-image: url(http://www.transparenttextures.com/patterns/absurdity.png);
 }
 
 #parking-form {

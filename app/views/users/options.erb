@@ -1,32 +1,22 @@
 <div id="options-body">
 
-	<div class="ui text container ">
-	<div class="ui padded basic vertical segment ">
-		<h2 class="ui header">
-			<i class="smile icon"></i>
-				Account
-		</h2>
-		<%= erb :"users/_show" %>
+	<div id="content-col "class="ui centered text container">
 
-		<button class="ui blue button">
-		  <i class="icon coffee"></i>
-		  Upgrade
-		</button>
+		<div class="ui padded basic vertical segment">
+			<div class="ui text container">
+				<h2 class="ui header">
+					<i class="users icon"></i>
+					Add a contact
+				</h2>
+				If you share your car or have someone that can move your car, <br> Faeree can send them personalized text messages to keep them in the loop.
+			</div>
+		</div>
 
-		<button class="ui blue basic button">
-		  <i class="icon pencil"></i>
-		  Edit
-		</button>
-
-
-	</div>
-
-	<div class="ui padded basuc vertical segment">
-		<h2 class="ui header">
-			<i class="users icon"></i>
-				Contacts
-		</h2>
-		<%= erb :"users/_show" %>
+		<div class="ui padded vertical segment ">
+			<div id="acct-options">
+				<%= erb :"users/_show" %>
+			</div>
+		</div>
 	</div>
 
 </div>

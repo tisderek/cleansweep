@@ -22,15 +22,20 @@ end
 
 #--------- EDIT USER -------------
 
+#ajax only
+get '/edit' do
+
+  erb :"users/_edit", layout: false
+end
+
 put '/users/:id' do
-    user.update_attributes(
-      name: params[:name],
-      phone_number: params[:phone_number],
-      #DR: what do I do when its an edit?
-      password: params[:password]
-      )
-    
-    redirect "/"
+  user.update_attributes(
+    name: params[:name],
+    phone_number: params[:phone_number],
+    email: params[:email]
+    )
+
+  erb :"user/_show", layout: false
 end
 
 #--------- DELETE USER -----------

@@ -40,7 +40,7 @@ $(document).ready(function() {
   // $('.pusher').css('min-height','none')
 //SESSION
 
-  // phone number emdashes in login/signup format
+  // phone number emdashes in login/signup form
   jQuery(function($){
      $("#signup_phone_number").mask("(999) 999-9999");
      $("#login_phone_number").mask("(999) 999-9999");
@@ -96,11 +96,7 @@ $(document).ready(function() {
     }
   });
 
-  // page content snug fit
-  // $('#navbar').next().css('padding-top','1.1em').css('margin-top', '-0.1em')
-
 });
-
 
 
 

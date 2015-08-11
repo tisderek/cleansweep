@@ -18,25 +18,7 @@
   <link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css'/>
 </head>
 <body>
-<div id="headerbar" class="ui large borderless inverted blue menu top attached ">
-  <div class="left menu">
-    <a class="center aligned item">
-      <i class="sidebar icon"></i>
-    </a>
-  </div>
-  <div class="center menu">
-    <span class="header item">
-      CLEAN SWEEP
-    </span>
-  </div>
-  <div class="right menu">
-    <a class="item">
-      <i class="share icon"></i>
-    </a>
-  </div>
-</div>
-<div class="ui bottom attached segment pushable">
-<div id="sidebar" class="ui inverted labeled icon left inline vertical sidebar menu">
+  <div id="sidebar" class="ui inverted labeled icon left inline vertical sidebar menu">
     <a class="item" id="sidebar-options" href="#">
       <i class="send outline icon"></i>
       Tell friends
@@ -59,14 +41,34 @@
     </a>
   </div>
   <div class="pusher">
-    <div id="navbar" class="ui three item secondary pointing blue menu top attached">
+    <div id="headerbar" class="ui large borderless inverted blue top attached menu">
+      <div class="left menu">
+        <a class="center aligned item">
+          <i class="sidebar icon"></i>
+        </a>
+      </div>
+      <div class="center menu">
+        <span class="header item">
+          CLEAN SWEEP
+        </span>
+      </div>
+      <div class="right menu">
+        <a class="item">
+          <i class="share icon"></i>
+        </a>
+      </div>
+    </div>
+    <div id="navbar" class="ui three item secondary pointing large blue bottom attached menu">
       <a class="item" id="navbar-park" href="/park">
-        Park
+      <i class="car icon"></i>
+         Park
       </a>
       <a class="item" id="navbar-dashboard" href="/">
+      <i class="dashboard icon"></i>
         Dashboard
       </a>
       <a class="item" id="navbar-options" href="/options">
+      <i class="options icon"></i>
         Options
       </a>
     </div>
@@ -74,9 +76,10 @@
     <div id="page-content" class="ui container ">
       <%= yield %>
     </div>
-    
+
   </div>
-</div>
+
+
 
   <!-- jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -84,16 +87,15 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
   <script src="/js/js_plugins.js"></script>
+  <script src="/js/options-js.js"></script>
+  <script src="/js/jquery.spritely.js"></script>
   <script src="/semantic/semantic.js"></script>
   <script>
-    $('.large.menu').children().first().on('click', function(){
+    $('.top.menu').children().first().on('click', function(){
       $('.ui.sidebar').sidebar('toggle');
-    })
-    $('.ui.sidebar')
-      .sidebar({
-        context: $('.bottom.segment')
-      });
+    });
     $('.ui.accordion').accordion()
   </script>
+
 </body>
 </html>
