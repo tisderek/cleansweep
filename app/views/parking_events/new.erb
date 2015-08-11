@@ -1,28 +1,26 @@
 <div id="park-body">
   <div id='map'></div>
 
-  <div class="ui middle aligned center aligned grid">
-      <div id="parking-form">
-        <form action = "/park" method="post">
-
-          <input type="hidden" name="lng" id="lng" value="" />
-          <input type="hidden" name="lat" id="lat" value="" />
-
-          <button type="submit" id="submit-location-park-btn" class="massive ui orange button"  >
-            Yep, I'm here.
-          </button>
-
-        </form>
-      </div>
-
-
+  <div class="ui middle aligned centralized fluid grid">
+  <!-- <div class="ui vertical basic segment "> -->
     <div id="grab-location-park-btns" class="large ui buttons">
       <button id='geolocate-park-btn' class="ui blue button">Find my location</button>
       <div class="or"></div>
       <button id='pindrop-park-btn' class="ui blue button">Let me drop a pin</button>
     </div>
-  </div>
 
+    <div id="parking-form">
+      <form action = "/park" method="post">
+        <input type="hidden" name="lng" id="lng" value="" />
+        <input type="hidden" name="lat" id="lat" value="" />
+        <button type="submit" id="submit-location-park-btn" class="massive ui orange button"  >
+          Yep, I'm here.
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- </div> -->
+</div>
 <!-- mapbox -->
   <link rel='stylesheet' href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css'/>
 
@@ -31,7 +29,7 @@
   <script>
   L.mapbox.accessToken = 'pk.eyJ1IjoidGlzZGVyZWsiLCJhIjoiZjkyNGM0NzNmMmJkZDcwNDY1ZTFjZjdmMjg5ZjVjYjcifQ.L45m9mxolxtTCizyjYLzGA';
   var geolocate = document.getElementById('geolocate-park-btn');
-  var park = document.getElementById('submit-location-park-btn')
+  var park = document.getElementById('parking-form')
   var map = L.mapbox.map('map', 'mapbox.emerald', {
     center: [37.7833, -122.4167],
     zoom: 13
@@ -79,4 +77,4 @@
     });
   </script>
 
-</div>
+

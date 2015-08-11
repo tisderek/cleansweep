@@ -1,9 +1,20 @@
+#----------- HOME / INDEX -----------
+
+get '/contacts' do
+  user_contacts = user.contacts
+  
+  if request.xhr?
+   request.xhr? erb :"/contacts/index", layout: false, locals: { contacts: user_contacts}
+  else  
+    erb :"/contacts/index", locals: { contacts: user_contacts}
+  end
+end
 
 #----------- CREATE -----------
 
 get '/contacts/new' do
 
-  erb :"/contacts/_new", layout: false
+  erb :"/contacts/_new"
 end
 
 post '/contacts' do
@@ -14,14 +25,6 @@ post '/contacts' do
     )
 
   redirect '/contacts'
-end
-
-#----------- INDEX -----------
-
-get '/contacts' do
-  user_contacts = user.contacts
-
-  erb :"/contacts/index", layout: false, locals: { contacts: user_contacts}
 end
 
 #----------- SHOW -----------

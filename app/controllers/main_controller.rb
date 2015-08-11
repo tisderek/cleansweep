@@ -11,13 +11,13 @@ end
 
 #------ DASHBOARD ----
 
-get '/dashboard' do
-  if request.xhr?
-    erb :dashboard, layout: false
-  else
-    redirect '/'
-  end
-end
+  # get '/dashboard' do
+  #   if request.xhr?
+  #     erb :dashboard, layout: false
+  #   else
+  #     redirect '/'
+  #   end
+  # end
 
 #------ LOGIN --------
 
