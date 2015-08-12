@@ -2,7 +2,7 @@
 
 #map {
   position:absolute;
-  top:87px;
+  top:96px;
   bottom:0px;
   width:100%;
 }
@@ -13,6 +13,7 @@
   margin-top:80%;
   clear:both;
   bottom:0;
+  left:0;
   z-index: -1;
 }
 
