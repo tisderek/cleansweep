@@ -2,7 +2,7 @@
 
 #map {
   position:absolute;
-  top:96px;
+  top:93px;
   bottom:0px;
   width:100%;
 }
@@ -27,7 +27,7 @@
 }
 
 #navbar{
-  background-color: #FAFAFA;
+  /*background-color: #FAFAFA;*/
   z-index:99;
 }
 
