@@ -7,9 +7,6 @@ $(document).ready(function() {
 
 // PARK
 
-
-  // fix positioning
-  // $('#map').css('margin-left', "-125")
   if (activePage == "park"){
     $('#navbar').next().removeClass('ui container')
   }

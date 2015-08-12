@@ -6,10 +6,9 @@ class ParkingEvent < ActiveRecord::Base
   validates :user_id, presence:true
   validates :street_name, presence:true
   validates :street_number, presence:true
-  validates :street_number, presence:true
 
-  before_create :reverse_geocode
-  belongs_to    :user
+  before_validation :reverse_geocode
+  belongs_to  :user
 
   def reverse_geocode
     location = LatLng.new(self.lat, self.lng)
