@@ -1,28 +1,13 @@
-<div class="ui form" action="/contacts" method="post">
+<form class="ui form" id="add-contact-form" action="/contacts" method="post">
 
-  <div class="inline field">
-    <label>Name</label>
-    <input type="text" name="name">
+  <div class="field">
+    <input type="text" id="contact-add-name "  name="name" placeholder="Name">
   </div>
-  <div class="inline field">
-    <label>Phone Number</label>
-    <input type="tel" name="phone_number">
-  </div>
-  <div class="inline field">
-    <label>Phone Number</label>
-    <input type="tel" name="phone_number">
-  </div>
-  <div class="inline field">
-    <div class="ui toggle checkbox">
-      <input type="checkbox" tabindex="0" class="hidden">
-      <label>Notify 1</label>
-    </div>
-  </div>
-  <div class="inline field">
-    <div class="ui toggle checkbox">
-      <input type="checkbox" tabindex="0" class="hidden">
-      <label>Notify 2</label>
-    </div>
+  <div class="field">
+    <input type="tel" id="contact-add-number"name=" phone_number" placeholder="Phone number" >
   </div>
 
-</div>
+  <input class="ui right floated button" id="add-contact-btn" type="submit" value="Submit">
+
+</form>
+<br>

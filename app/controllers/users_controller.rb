@@ -34,8 +34,9 @@ put '/users/:id' do
     phone_number: params[:phone_number],
     email: params[:email]
     )
+  user.save
 
-  erb :"user/_show", layout: false
+  redirect '/options'
 end
 
 #--------- DELETE USER -----------

@@ -3,20 +3,42 @@
 	<div id="content-col "class="ui centered text container">
 
 		<div class="ui padded basic vertical segment">
-			<div class="ui text container">
+
+			<% if user.contacts.count == 0 %>
+
+			<div class="ui text container" id="add-contact-container" >
 				<h2 class="ui header">
 					<i class="users icon"></i>
 					Add a contact
 				</h2>
-				If you share your car or have someone that can move your car, <br> Faeree can send them personalized text messages to keep them in the loop.
+				<div class="ui content">
+				If you share your vehicle with someone, Faeree can send personalized text messages to keep them in the loop.
+				</div>
+			</div>
+			<div id="content-col add-contact-wrapper" class="ui padded segment">
+				<%= erb :"contacts/_new", layout: false %>
+			</div>
+
+			<% else %>
+
+			<div class="ui text container" id="user-contacts-container" >
+				<h2 class="ui header">
+					<i class="users icon"></i>
+					Contacts
+				</h2>
+				If you share your vehicle, Faeree can send personalized text messages to keep them in the loop.
+			</div>
+			<div id="content-col" class="ui basic segment">
+				<%= erb :"contacts/_index", layout: false %>
+			</div>
+
+			<% end %>
+
+			<div class="ui padded vertical segment ">
+				<div id="acct-options">
+					<%= erb :"users/_show" %>
+				</div>
 			</div>
 		</div>
 
-		<div class="ui padded vertical segment ">
-			<div id="acct-options">
-				<%= erb :"users/_show" %>
-			</div>
-		</div>
 	</div>
-
-</div>

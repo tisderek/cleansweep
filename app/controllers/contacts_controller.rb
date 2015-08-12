@@ -4,9 +4,9 @@ get '/contacts' do
   user_contacts = user.contacts
   
   if request.xhr?
-   request.xhr? erb :"/contacts/index", layout: false, locals: { contacts: user_contacts}
+   request.xhr? erb :"/contacts/_index", layout: false, locals: { contacts: user_contacts}
   else  
-    erb :"/contacts/index", locals: { contacts: user_contacts}
+    erb :"/contacts/_index", locals: { contacts: user_contacts}
   end
 end
 

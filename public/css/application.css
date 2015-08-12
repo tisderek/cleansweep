@@ -26,6 +26,10 @@
   max-width: 700px;
 }
 
+#content-col{
+  max-width: 400px;
+}
+
 #navbar{
   /*background-color: #FAFAFA;*/
   z-index:99;
@@ -45,4 +49,8 @@
 
 #parking-form {
   display: none;
+}
+
+#add-contact-wrapper {
+  background-color: #2ecc71;
 }
