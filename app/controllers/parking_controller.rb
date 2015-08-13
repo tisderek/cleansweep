@@ -33,9 +33,9 @@ end
 get '/parked/:id' do
   @parked = ParkingEvent.find(params[:id])
   if @parked.get_route == nil
-    erb :"/parking_events/404", locals: { header: "Whoops" }
+    erb :"parking_events/404", locals: { header: "Whoops" }
   else
-    erb :"/parking_events/show", locals: { parked: @parked,  header: "Here's the 411" }
+    erb :"parking_events/show", locals: { parked: @parked,  header: "Here's the 411" }
   end
 end
 
