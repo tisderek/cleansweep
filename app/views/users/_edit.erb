@@ -1,0 +1,38 @@
+<div id="user-edit" >
+	<h2 class="ui header">
+		 <i class="pencil icon"></i>
+		Edit Account
+	</h2>
+	<br>
+	<form class="ui large fluid form" id="acct-edit-form" action='/users/<%= user.id %>' method="post">
+    <input type="hidden" name="_method" value="PUT">
+		<div class="field">
+		<div class="inline field">
+			<label> <i class="user icon"></i> Name:</label>
+			<input type="text" id="name-edit" name="name" value="<%= user.name %>">
+		</div>
+		</div>
+		
+		<div class="inline field">
+			<label> <i class="mobile icon"></i> Phone number:</label>
+			<input type="tel" id="phone-number-edit" name="phone_number" value="<%= display_phone(user.phone_number) %>" novalidate>
+		</div>
+
+		
+		<div class="inline field">
+			<label> <i class="at icon"></i> Email:</label>
+			<input type="text" id="email-edit" name="email" value="<%= user.email %>">
+		</div>
+		
+		
+		<div class="inline disabled field">
+			<label> <i class="lock icon"></i> Password:</label>
+			<input type="text" id="password-edit" name="password" placeholder="6 Digit Password">
+		</div>
+
+		<div class="inline field">
+			<input class="ui green button" type="submit" id="edit-submit-btn" value="Update">
+		</div>
+
+	</form>
+</div>
