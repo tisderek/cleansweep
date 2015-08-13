@@ -1,20 +1,20 @@
 <div id="park-body">
   <div id='map'></div>
 
-  <div class="ui middle aligned centralized fluid grid">
+  <div class="ui middle aligned centered fluid grid">
   <!-- <div class="ui vertical basic segment "> -->
-    <div id="grab-location-park-btns" class="large ui buttons">
+    <!-- <div id="grab-location-park-btns" class="large ui buttons">
       <button id='geolocate-park-btn' class="ui blue button">Find my location</button>
       <div class="or"></div>
       <button id='pindrop-park-btn' class="ui blue button">Let me drop a pin</button>
-    </div>
+    </div> -->
 
     <div id="parking-form">
       <form action = "/park" method="post">
         <input type="hidden" name="lng" id="lng" value="" />
         <input type="hidden" name="lat" id="lat" value="" />
-        <button type="submit" id="submit-location-park-btn" class="massive ui orange button"  >
-          Yep, I'm here.
+        <button type="submit" id="submit-location-park-btn" class="massive ui olive button"  >
+          Yep, I'm parked here.
         </button>
       </form>
     </div>
@@ -38,21 +38,20 @@
   var myLayer = L.mapbox.featureLayer().addTo(map);
 
     // This uses the HTML5 geolocation API
-    if (!navigator.geolocation) {
-      geolocate.innerHTML = 'Geolocation is not available';
-    } else {
-      geolocate.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        map.locate();
-      };
-    }
-
+    // if (!navigator.geolocation) {
+    //   geolocate.innerHTML = 'Geolocation is not available';
+    // } else {
+    //     map.locate();
+    //   };
+    // }
+    
+    map.locate();
     // Once we've got a position, zoom and center the map
     // on it, and add a single marker.
     map.on('locationfound', function(e) {
       park.style.display = 'block'
       map.fitBounds(e.bounds);
+      // console.log(e.bounds);
       myLayer.setGeoJSON({
         type: 'Feature',
         geometry: {

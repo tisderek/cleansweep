@@ -38,7 +38,7 @@ helpers do
   end
 
   def user
-    User.find_by(token: session[:token])
+    @user ||= User.find_by(token: session[:token])
   end
 
   def username
