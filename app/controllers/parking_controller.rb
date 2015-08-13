@@ -12,21 +12,23 @@ end
 post '/park' do
   @parked = ParkingEvent.new(
     lat: params[:lat],
-    lng: params[:lng],
+    lng: params[:lng]
     )
   @parked.user_id = user.id
-  @parked.save
-
-
+  
+  if @parked.save
     redirect "/parked/#{@parked.id}"
+  else
+    erb :"parking_events/show", locals: { parked: @parked,  header: "Here's the 411" }
+  end
 end
 
 #----------- INDEX -----------
 
-get '/parked' do
+# get '/parked' do
 
-  erb :"parking_events/index"
-end
+#   erb :"parking_events/index"
+# end
 
 #----------- SHOW -----------
 
