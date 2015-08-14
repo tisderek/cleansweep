@@ -36,20 +36,18 @@
 }
 
 #grab-location-park-btns, #parking-form {
-  position: absolute;
-  left:5% ;
-  bottom: 20%;
-  z-index:90;
+  z-index:99;
+  margin-top: 75%;
 }
 
 #pusher{
   background-color: #ffffff; 
   background-image: url(http://www.transparenttextures.com/patterns/absurdity.png);
 }
-
+/*
 #parking-form {
   display: none;
-}
+}*/
 
 #add-contact-wrapper {
   background-color: #2ecc71;

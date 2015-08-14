@@ -24,6 +24,10 @@ class Route < ActiveRecord::Base
       if self.streetname.split("")[0] = "0"
         self.streetname = self.streetname.gsub("0","")
       end
+      # do a has a la:
+      #  format_names = {
+      # "St" => "Street" }
+      # for
   end
 
 

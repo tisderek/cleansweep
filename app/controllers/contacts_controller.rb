@@ -4,9 +4,9 @@ get '/contacts' do
   user_contacts = user.contacts
   
   if request.xhr?
-   request.xhr? erb :"/contacts/_index", layout: false, locals: { contacts: user_contacts}
+   request.xhr? erb :"contacts/_index", layout: false, locals: { contacts: user_contacts}
   else  
-    erb :"/contacts/_index", locals: { contacts: user_contacts}
+    erb :"contacts/_index", locals: { contacts: user_contacts}
   end
 end
 
@@ -14,7 +14,7 @@ end
 
 get '/contacts/new' do
 
-  erb :"/contacts/_new"
+  erb :"contacts/_new"
 end
 
 post '/contacts' do
@@ -32,7 +32,7 @@ end
 get '/contacts/:id' do
   @contact = Contact.find(params[:id])
 
-  erb :"/contacts/_show", locals: { contact: @contact }
+  erb :"contacts/_show", locals: { contact: @contact }
 end
 
 
@@ -41,7 +41,7 @@ end
 get '/contacts/:id/edit' do
   @contact = Contact.find(params[:id])
 
-  erb :"/contacts/_edit"
+  erb :"contacts/_edit"
 end
 
 put '/contacts/:id' do
