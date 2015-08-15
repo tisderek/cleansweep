@@ -1,7 +1,8 @@
 <div id="parked-body">
+  <div class="ui container">
   <h2> <%= header %> </h2>
   <br>
-  <div class="ui two column stackable grid container">
+  <div class="ui two column stackable grid centered container">
     <div class="column">
       <div class="ui centralized card">
         <div class="content">
@@ -23,7 +24,7 @@
           <div class="ui top left attached label">
             Countdown
           </div>
-          <div class="ui three mini blue statistics">
+          <div class="ui three mini grey statistics">
             <div class=" statistic">
               <div class="value">
                 2
@@ -56,17 +57,17 @@
             <div class="ui top left attached label">
               Text Notifications
             </div>
-            <div class="ui toggle checkbox">
+            <div class="ui toggle disabled checkbox">
               <input type="checkbox" name="preceeding-day-notif" checked>
               <label> 1h before street sweeping </label>
               <br>
             </div>
-            <div class="ui toggle checkbox">
+            <div class="ui toggle disabled checkbox">
               <input type="checkbox" name="day-of-notif" checked>
               <label> At 8am on the day of </label>
               <br>
             </div>
-            <div class="ui toggle checkbox">
+            <div class="ui toggle disabled checkbox">
               <input type="checkbox" name="preceeding-day-notif">
               <label> At 8pm on the day before </label>
             </div>
@@ -110,4 +111,5 @@
 
     </div>
   </div>
+</div>
 </div>
