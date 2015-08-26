@@ -1,9 +1,28 @@
-  <p>
-     Name:  <b> <%= contact.name %></b>
+<div class="ui card">
+  <div class="content">
+    <div class="ui medium header"> 
+      <%= contact.contact_name %> 
+    </div>
+    <i class="mobile icon"></i> 
+    <%= display_phone(contact.contact_phone_number) %>
+  </div>
+  <div class="ui two bottom attached small buttons">
 
-    <br>
-    <br>
+      <a class= "ui grey basic vertical animated button" >
+        <div class="visible content"> 
+          <i class="pencil icon"></i> 
+        </div>
+        <div class="hidden content"> 
+          Edit 
+        </div>
+      </a>
 
-    Phone:  <b> <%= contact.phone_number %> </b>
+      <div class= "ui red basic vertical animated button">
+        <div class="visible content"> <i class="trash icon"></i> </div>
+        <div class="hidden content"> Delete </div>
+      </div>
 
-  </p>
+    </div>
+  </div>
+</div>
+

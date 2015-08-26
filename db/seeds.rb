@@ -26,6 +26,7 @@ RGeo::Shapefile::Reader.open('db/routes/routes.shp') do |file|
       args[:weekday] = "Saturday"
     end
     Route.create(args)
+    break if record.index == 2000
   end
   file.rewind
   record = file.next
